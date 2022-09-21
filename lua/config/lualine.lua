@@ -12,18 +12,18 @@ local function statusLineFormat(str)
     if modes[str] ~= nil then
         return modes[str]
     else
-        return str:sub(1,1)
+        return str:sub(1, 1)
     end
 end
 
 local function branchLineFormat(str)
     local maxLength = 15
 
-    if (str == nil) then
+    if str == nil then
         return nil
     end
 
-    if (#str <= maxLength) then
+    if #str <= maxLength then
         return str
     end
 
@@ -36,22 +36,27 @@ lualine.setup({
         icons_enabled = true,
         component_separators = {
             left = "",
-            right = ""
+            right = "",
         },
         section_separators = {
             left = "",
-            right = ""
+            right = "",
         },
-        disabled_filetypes = {"dashboard", "neo-tree", "NvimTree", "TelescopePrompt"},
-        globalstatus = true
+        disabled_filetypes = {
+            "dashboard",
+            "neo-tree",
+            "NvimTree",
+            "TelescopePrompt",
+        },
+        globalstatus = true,
     },
     sections = {
         lualine_a = {
-            {'mode', fmt = statusLineFormat},
+            { "mode", fmt = statusLineFormat },
         },
         lualine_b = {
-            {"b:gitsigns_head", icon = "", fmt = branchLineFormat},
-            "diff"
+            { "b:gitsigns_head", icon = "", fmt = branchLineFormat },
+            "diff",
         },
         lualine_c = {
             {
@@ -61,13 +66,13 @@ lualine.setup({
                 shorting_target = 40,
                 symbols = {
                     modified = " ●",
-                    readonly = " "
-                }
-            }
+                    readonly = " ",
+                },
+            },
         },
         lualine_x = {
-            {"diagnostics", sources = {"nvim_diagnostic"}},
-            "filetype"
+            { "diagnostics", sources = { "nvim_diagnostic" } },
+            "filetype",
         },
         lualine_y = {},
         lualine_z = {
@@ -75,9 +80,11 @@ lualine.setup({
                 "location",
                 icon = "",
                 -- Trim extra leading space
-                fmt = function(str) return str:sub(2) end
-            }
-        }
+                fmt = function(str)
+                    return str:sub(2)
+                end,
+            },
+        },
     },
     inactive_sections = {
         -- Empty: Global statusline
@@ -89,5 +96,5 @@ lualine.setup({
         "quickfix",
         "symbols-outline",
         "toggleterm",
-    }
+    },
 })
