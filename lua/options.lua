@@ -44,7 +44,7 @@ o.numberwidth = 5                   -- Line numbers up to 5 characters
 o.wrap = false                      -- No line wrapping
 wo.colorcolumn = "80"               -- Column guide at 80 characters
 o.showmode = false                  -- Don't show default mode indicator
-o.ruler = false                     -- Alway hide cursor position
+o.ruler = false                     -- Always hide cursor position
 o.laststatus = 3                    -- Global status line
 
 -- -----------------------------------------------------------------------------
@@ -61,8 +61,8 @@ o.expandtab = true                  -- Tabs as spaces
 o.softtabstop = 4                   -- Colums of tabs in insert mode
 o.shiftwidth = 4                    -- Columns to indent by
 o.shiftround = true                 -- Always align indents to shift width
-o.timeoutlen=400                    -- Short timeouts
-o.ttimeoutlen=0                     -- Quickly change modes
+o.timeoutlen = 400                  -- Short timeouts
+o.ttimeoutlen = 0                   -- Quickly change modes
 o.fileencoding = "utf-8"            -- Default encoding
 o.lazyredraw = true                 -- Don't redraw while executing macros
 o.autoindent = true                 -- Auto indent
