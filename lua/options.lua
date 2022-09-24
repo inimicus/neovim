@@ -18,6 +18,7 @@ g.loaded_perl_provider = 0
 -- -----------------------------------------------------------------------------
 -- Command Menu
 -- -----------------------------------------------------------------------------
+o.showcmd = false                   -- Hide key input
 o.cmdheight = 1                     -- Command only needs one line
 o.history = 250                     -- Reduce history length for commands
 o.wildmenu = false
