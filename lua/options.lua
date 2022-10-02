@@ -54,6 +54,7 @@ o.laststatus = 3                    -- Global status line
 -- Complete options via nvim-cmp docs, does not include 'noinsert'
 o.completeopt = {"menu", "menuone", "noselect"}
 
+o.mouse = nil
 o.smarttab = true                   -- Consistent start of line tab handling
 o.smartindent = true                -- Smart indenting
 o.tabstop = 4                       -- Column size of tabs
