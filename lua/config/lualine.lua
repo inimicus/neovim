@@ -30,6 +30,119 @@ local function branchLineFormat(str)
     return str:sub(1, maxLength) .. "…"
 end
 
+local winbarSections = {
+    lualine_a = {},
+    lualine_b = {
+        {
+            "filetype",
+            colored = false, -- Displays filetype icon in color if set to true
+            icon_only = true, -- Display only an icon for filetype
+        },
+    },
+    lualine_c = {
+        {
+            "filename",
+            file_status = true,
+            path = 1,
+            shorting_target = 40,
+            symbols = {
+                modified = "●",
+                readonly = "",
+            },
+            fmt = function(str)
+                local tree = "NvimTree"
+                if string.sub(str, 1, string.len(tree)) == tree then
+                    return tree
+                else
+                    return str
+                end
+            end,
+        },
+    },
+    lualine_y = {},
+    lualine_z = {},
+    lualine_x = {
+        {
+            "diagnostics",
+            sources = { "nvim_lsp", "nvim_diagnostic" },
+            sections = { "error", "warn", "info", "hint" },
+            symbols = {
+                error = " ",
+                warn = " ",
+                info = " ",
+                hint = " ",
+            },
+            colored = true, -- Displays diagnostics status in color if set to true.
+            update_in_insert = false, -- Update diagnostics in insert mode.
+            always_visible = false, -- Show diagnostics even if there are none.
+        },
+    },
+}
+
+local statusLineSections = {
+    lualine_a = {
+        { "mode", fmt = statusLineFormat },
+    },
+    lualine_b = {
+        { "b:gitsigns_head", icon = "", fmt = branchLineFormat },
+        {
+            "diff",
+            separator = "",
+        },
+    },
+    lualine_c = {
+        {
+            cond = function()
+                local navic_installed, navic = pcall(require, "nvim-navic")
+                return navic_installed and navic.is_available()
+            end,
+            "require('nvim-navic').get_location()",
+        },
+    },
+    lualine_x = {
+        "filetype",
+    },
+    lualine_y = {
+        {
+            function()
+                local msg = nil
+                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                local clients = vim.lsp.get_active_clients()
+                if next(clients) == nil then
+                    return msg
+                end
+                for _, client in ipairs(clients) do
+                    local filetypes = client.config.filetypes
+                    if
+                        filetypes
+                        and vim.fn.index(filetypes, buf_ft) ~= -1
+                        and client.name ~= "null-ls"
+                    then
+                        return client.name
+                    end
+                end
+                return msg
+            end,
+            cond = function()
+                local clients = vim.lsp.get_active_clients()
+                return next(clients) ~= nil
+            end,
+            icon = " ",
+            padding = { left = 0, right = 1 },
+        },
+    },
+    lualine_z = {
+        {
+            "location",
+            icon = "",
+            -- Trim extra leading space
+            fmt = function(str)
+                return str:sub(2)
+            end,
+        },
+    },
+}
+
 lualine.setup({
     options = {
         theme = "auto",
@@ -45,51 +158,17 @@ lualine.setup({
         disabled_filetypes = {
             "dashboard",
             "neo-tree",
-            "NvimTree",
             "TelescopePrompt",
         },
         globalstatus = true,
     },
-    sections = {
-        lualine_a = {
-            { "mode", fmt = statusLineFormat },
-        },
-        lualine_b = {
-            { "b:gitsigns_head", icon = "", fmt = branchLineFormat },
-            "diff",
-        },
-        lualine_c = {
-            {
-                "filename",
-                file_status = true,
-                path = 1, -- show relative path
-                shorting_target = 40,
-                symbols = {
-                    modified = " ●",
-                    readonly = " ",
-                },
-            },
-        },
-        lualine_x = {
-            { "diagnostics", sources = { "nvim_diagnostic" } },
-            "filetype",
-        },
-        lualine_y = {},
-        lualine_z = {
-            {
-                "location",
-                icon = "",
-                -- Trim extra leading space
-                fmt = function(str)
-                    return str:sub(2)
-                end,
-            },
-        },
-    },
+    sections = statusLineSections,
     inactive_sections = {
         -- Empty: Global statusline
     },
     tabline = {},
+    winbar = winbarSections,
+    inactive_winbar = winbarSections,
     extensions = {
         "nvim-dap-ui",
         "nvim-tree",

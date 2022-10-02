@@ -22,7 +22,9 @@ end
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
     if navic_installed then
-        navic.attach(client, bufnr)
+        if client.server_capabilities.documentSymbolProvider then
+            navic.attach(client, bufnr)
+        end
     end
 end
 
