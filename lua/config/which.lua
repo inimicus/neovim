@@ -215,7 +215,7 @@ wk.register({
         a = {"<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action"},
         d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go To Definition"},
         e = {"<cmd>Telescope diagnostics bufnr=0<cr>", "Document Diagnostics"},
-        f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "Format"},
+        f = {"<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format"},
         i = {"<cmd>LspInfo<cr>", "Connected Language Servers"},
         k = {"<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help"},
         l = {
