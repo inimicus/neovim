@@ -130,6 +130,12 @@ use({
 --     config = get_config("neo-tree")
 -- }
 
+-- Better search highlight/progress
+use ({
+    "kevinhwang91/nvim-hlslens",
+    config = get_config("hlslens"),
+})
+
 -- Show buffers as tabs or make tab line fancy
 use({ "akinsho/bufferline.nvim", config = get_config("bufferline") })
 
