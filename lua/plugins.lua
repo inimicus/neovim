@@ -243,6 +243,14 @@ use({
 	config = get_config("cmp"),
 })
 
+-- Handsome folds
+-- Waiting on https://github.com/neovim/neovim/pull/17446
+-- use {
+--     'kevinhwang91/nvim-ufo',
+--     requires = 'kevinhwang91/promise-async',
+--     config = get_config('ufo'),
+-- }
+
 -- Handsome diffs and utils
 use({
 	"sindrets/diffview.nvim",
