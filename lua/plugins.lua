@@ -136,6 +136,11 @@ use ({
     config = get_config("hlslens"),
 })
 
+use({
+    "petertriho/nvim-scrollbar",
+    config = get_config("scrollbar"),
+})
+
 -- Show buffers as tabs or make tab line fancy
 use({ "akinsho/bufferline.nvim", config = get_config("bufferline") })
 
