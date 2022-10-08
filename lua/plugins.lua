@@ -142,7 +142,13 @@ use({
 })
 
 -- Show buffers as tabs or make tab line fancy
-use({ "akinsho/bufferline.nvim", config = get_config("bufferline") })
+-- use({ "akinsho/bufferline.nvim", config = get_config("bufferline") })
+
+-- Improved tabline
+use({
+    "nanozuki/tabby.nvim",
+    config = get_config("tabby")
+})
 
 -- fzf implementation
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
