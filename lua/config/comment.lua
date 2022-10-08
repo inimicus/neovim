@@ -3,6 +3,9 @@ if not status_ok then
     return
 end
 
+-- If extended keybindings are missed, see:
+-- https://github.com/numToStr/Comment.nvim/wiki/Extended-Keybindings
+
 comment.setup({
     ---Add a space b/w comment and the line
     ---@type boolean
@@ -23,9 +26,6 @@ comment.setup({
         ---extra mapping
         ---Includes `gco`, `gcO`, `gcA`
         extra = true,
-        ---extended mapping
-        ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        extended = true,
     },
 
     ---LHS of toggle mapping in NORMAL + VISUAL mode
