@@ -64,7 +64,7 @@ local winbarSections = {
     lualine_x = {
         {
             "diagnostics",
-            sources = { "nvim_lsp", "nvim_diagnostic" },
+            sources = { "nvim_diagnostic" },
             sections = { "error", "warn", "info", "hint" },
             symbols = {
                 error = " ",
