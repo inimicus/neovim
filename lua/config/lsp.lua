@@ -8,7 +8,7 @@ local ufo_installed, _ = pcall(require, "ufo")
 if ufo_installed then
     capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
-        lineFoldingOnly = true
+        lineFoldingOnly = true,
     }
 end
 
@@ -17,7 +17,7 @@ local signs = {
     Error = " ",
     Warn = " ",
     Info = " ",
-    Hint = ""
+    Hint = "",
 }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
@@ -27,7 +27,7 @@ end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+    vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
     if navic_installed then
         if client.server_capabilities.documentSymbolProvider then
             navic.attach(client, bufnr)
@@ -53,18 +53,29 @@ local servers = {
 
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+    nvim_lsp[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
         flags = lsp_flags,
         settings = {
             intelephense = {
                 stubs = {
+                    "Core",
+                    "Ev",
+                    "PDO",
+                    "Phar",
+                    "Reflection",
+                    "SPL",
+                    "SQLite",
+                    "SimpleXML",
+                    "Zend OPcache",
+                    "ZendCache",
+                    "ZendDebugger",
+                    "ZendUtils",
                     "apcu",
                     "bcmath",
                     "bz2",
                     "calendar",
-                    "Core",
                     "crypto",
                     "ctype",
                     "curl",
@@ -72,7 +83,6 @@ for _, lsp in ipairs(servers) do
                     "dba",
                     "dom",
                     "enchant",
-                    "Ev",
                     "event",
                     "exif",
                     "fileinfo",
@@ -111,31 +121,24 @@ for _, lsp in ipairs(servers) do
                     "oauth",
                     "odbc",
                     "openssl",
-                    "password",
                     "pcntl",
                     "pcre",
                     "pdflib",
-                    "PDO",
                     "pdo_mysql",
                     "pdo_sqlite",
-                    "Phar",
                     "posix",
                     "pthreads",
                     "radius",
                     "readline",
                     "recode",
                     "redis",
-                    "Reflection",
                     "regex",
                     "session",
                     "shmop",
-                    "SimpleXML",
                     "snmp",
                     "soap",
                     "sockets",
                     "sodium",
-                    "SPL",
-                    "SQLite",
                     "sqlite3",
                     "ssh2",
                     "standard",
@@ -149,25 +152,19 @@ for _, lsp in ipairs(servers) do
                     "v8js",
                     "xcache",
                     "xdebug",
-                    "xdebug",
                     "xml",
                     "xmlreader",
                     "xmlwriter",
                     "yaml",
                     "zend",
-                    "Zend OPcache",
-                    "ZendCache",
-                    "ZendDebugger",
-                    "ZendUtils",
                     "zip",
                     "zlib",
-                    "polylang"
                 },
                 files = {
-                    maxSize = 5000000;
+                    maxSize = 5000000,
                 },
                 telemetry = {
-                    enable = false
+                    enable = false,
                 },
                 completion = {
                     enable = true,
@@ -186,74 +183,84 @@ for _, lsp in ipairs(servers) do
                 },
                 format = {
                     enable = false,
-                }
+                },
+                rename = {
+                    namespaceMode = "all",
+                },
             },
             json = {
                 format = { enabled = false },
                 schemas = {
                     {
                         description = "TypeScript config",
-                        fileMatch = { 'tsconfig.json', 'tsconfig.*.json' },
-                        url = 'http://json.schemastore.org/tsconfig',
+                        fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+                        url = "http://json.schemastore.org/tsconfig",
                     },
                     {
                         description = "ESLint config",
                         fileMatch = {
                             ".eslintrc.json",
                             ".eslintrc",
-                            ".eslintrc.js"
+                            ".eslintrc.js",
                         },
-                        url = "http://json.schemastore.org/eslintrc"
+                        url = "http://json.schemastore.org/eslintrc",
                     },
                     {
                         description = "Prettier settings",
-                        fileMatch = { '.prettierrc', '.prettierrc.json', 'prettier.config.json' },
-                        url = 'http://json.schemastore.org/prettierrc',
+                        fileMatch = {
+                            ".prettierrc",
+                            ".prettierrc.json",
+                            "prettier.config.json",
+                        },
+                        url = "http://json.schemastore.org/prettierrc",
                     },
                     {
                         description = "Package config",
                         fileMatch = { "package.json" },
-                        url = "https://json.schemastore.org/package"
+                        url = "https://json.schemastore.org/package",
                     },
                     {
                         description = "Packer config",
                         fileMatch = { "packer.json" },
-                        url = "https://json.schemastore.org/packer"
+                        url = "https://json.schemastore.org/packer",
                     },
                     {
                         description = "Renovate config",
                         fileMatch = {
-                            "renovate.json", "renovate.json5",
-                            ".github/renovate.json", ".github/renovate.json5",
-                            ".renovaterc", ".renovaterc.json"
+                            "renovate.json",
+                            "renovate.json5",
+                            ".github/renovate.json",
+                            ".github/renovate.json5",
+                            ".renovaterc",
+                            ".renovaterc.json",
                         },
-                        url = "https://docs.renovatebot.com/renovate-schema"
+                        url = "https://docs.renovatebot.com/renovate-schema",
                     },
                     {
                         description = "OpenApi config",
                         fileMatch = { "*api*.json" },
-                        url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"
-                    }
-                }
+                        url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json",
+                    },
+                },
             },
             Lua = {
                 cmd = { "lua-language-server" },
                 filetypes = { "lua" },
                 runtime = {
                     version = "LuaJIT",
-                    path = vim.split(package.path, ";")
+                    path = vim.split(package.path, ";"),
                 },
                 completion = {
                     enable = true,
-                    callSnippet = "Both"
+                    callSnippet = "Both",
                 },
                 diagnostics = {
                     enable = true,
                     globals = {
                         "vim",
-                        "describe"
+                        "describe",
                     },
-                    disable = {}
+                    disable = {},
                 },
                 -- workspace = {
                 --     library = {
@@ -267,9 +274,9 @@ for _, lsp in ipairs(servers) do
                 --     preloadFileSize = 1000
                 -- },
                 telemetry = {
-                    enable = false
+                    enable = false,
                 },
             },
         },
-    }
+    })
 end
