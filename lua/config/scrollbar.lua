@@ -3,9 +3,18 @@ if not status_ok then
     return
 end
 
-scrollbar.setup()
-
 local hlslens_ok = pcall(require, "hlslens")
-if hlslens_ok then
-    require("scrollbar.handlers.search").setup()
-end
+
+scrollbar.setup({
+    show_in_active_only = true,
+    excluded_filetypes = {
+        "prompt",
+        "TelescopePrompt",
+        "NvimTree",
+        "Dashboard",
+    },
+    handlers = {
+        diagnostic = true,
+        search = hlslens_ok,
+    },
+})
