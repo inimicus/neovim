@@ -323,6 +323,13 @@ use({
 	},
 })
 
+-- Highlight arguments via Treesitter
+use {
+    'm-demare/hlargs.nvim',
+    requires = { 'nvim-treesitter/nvim-treesitter' },
+    config = get_config("hlargs")
+}
+
 -- Color picker
 -- use {
 --     "ziontee113/color-picker.nvim",
