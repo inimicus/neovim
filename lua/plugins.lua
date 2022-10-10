@@ -139,6 +139,7 @@ use ({
 use({
     "petertriho/nvim-scrollbar",
     config = get_config("scrollbar"),
+    wants = { { "kevinhwang91/nvim-hlslens" } },
 })
 
 -- Show buffers as tabs or make tab line fancy
