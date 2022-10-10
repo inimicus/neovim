@@ -19,28 +19,29 @@ end
 -- Show cursorline for active buffer only
 -- -----------------------------------------------------------------------------
 
-local showCursorLineGroup = create_augroup('HideCursorLineForInactive', {
-    clear = true
+local showCursorLineGroup = create_augroup("HideCursorLineForInactive", {
+    clear = true,
 })
 
 -- Disable cursorline when leaving
 create_autocmd("WinLeave", {
     command = "setlocal nocursorline",
-    group = showCursorLineGroup
+    group = showCursorLineGroup,
 })
 
 -- Enable cursorline when entering specific file/buffer types
 local function showCursorLine()
     local excludeBuftypes = {
         "nofile",
-        "prompt"
+        "prompt",
     }
     local excludeFiletypes = {
-        "dashboard"
+        "dashboard",
     }
 
-    if inArray(bo.filetype, excludeFiletypes) or
-        inArray(bo.buftype, excludeBuftypes)
+    if
+        inArray(bo.filetype, excludeFiletypes)
+        or inArray(bo.buftype, excludeBuftypes)
     then
         return
     end
@@ -54,5 +55,5 @@ create_autocmd({
     "BufWinEnter",
 }, {
     callback = showCursorLine,
-    group = showCursorLineGroup
+    group = showCursorLineGroup,
 })

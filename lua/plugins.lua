@@ -6,7 +6,7 @@
 -- expects the name of the config file
 -- Via https://github.com/Allaman/nvim
 local function get_config(name)
-	return string.format('require("config/%s")', name)
+    return string.format('require("config/%s")', name)
 end
 
 -- -----------------------------------------------------------------------------
@@ -14,33 +14,39 @@ end
 -- -----------------------------------------------------------------------------
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = string.format("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
+local install_path =
+    string.format("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
 
 -- Via https://github.com/tjdevries/config_manager
 local download_packer = function()
-	if vim.fn.input("Download Packer? (y for yes) ") ~= "y" then
-		return
-	end
+    if vim.fn.input("Download Packer? (y for yes) ") ~= "y" then
+        return
+    end
 
-	print("Downloading packer.nvim...")
+    print("Downloading packer.nvim...")
 
-	local directory = string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))
+    local directory =
+        string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))
 
-	fn.mkdir(directory, "p")
+    fn.mkdir(directory, "p")
 
-	local out = fn.system(
-		string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
-	)
+    local out = fn.system(
+        string.format(
+            "git clone %s %s",
+            "https://github.com/wbthomason/packer.nvim",
+            directory .. "/packer.nvim"
+        )
+    )
 
-	print(out)
+    print(out)
 
-	execute("packadd packer.nvim")
+    execute("packadd packer.nvim")
 
-	print("packer.nvim installed!")
+    print("packer.nvim installed!")
 end
 
 if not pcall(require, "packer") then
-	download_packer()
+    download_packer()
 end
 
 -- -----------------------------------------------------------------------------
@@ -48,14 +54,15 @@ end
 -- -----------------------------------------------------------------------------
 local packer = require("packer")
 local use = packer.use
-local compile_path = string.format("%s/plugin/packer_compiled.lua", install_path)
+local compile_path =
+    string.format("%s/plugin/packer_compiled.lua", install_path)
 
 packer.init({
-	-- Set `:PackerCompile profile=true` to enable profiling
-	enable = true,
-	-- Time in ms to include a plugin in the profile
-	threshold = 0,
-	compile_path = compile_path,
+    -- Set `:PackerCompile profile=true` to enable profiling
+    enable = true,
+    -- Time in ms to include a plugin in the profile
+    threshold = 0,
+    compile_path = compile_path,
 })
 
 packer.reset()
@@ -74,25 +81,25 @@ use({ "rebelot/kanagawa.nvim", config = get_config("kanagawa") })
 
 -- Control and navigate any list
 use({
-	"nvim-telescope/telescope.nvim",
-	requires = {
-		{ "nvim-lua/popup.nvim" },
-		{ "nvim-lua/plenary.nvim" },
-	},
-	config = get_config("telescope"),
+    "nvim-telescope/telescope.nvim",
+    requires = {
+        { "nvim-lua/popup.nvim" },
+        { "nvim-lua/plenary.nvim" },
+    },
+    config = get_config("telescope"),
 })
 
 -- Inline color highlighter
 use({
-	"norcalli/nvim-colorizer.lua",
-	event = "BufReadPre",
-	config = get_config("colorizer"),
+    "norcalli/nvim-colorizer.lua",
+    event = "BufReadPre",
+    config = get_config("colorizer"),
 })
 
 -- Smart comments
 use({
-	"numToStr/Comment.nvim",
-	config = get_config("comment"),
+    "numToStr/Comment.nvim",
+    config = get_config("comment"),
 })
 
 -- Make cursor pop
@@ -107,11 +114,11 @@ use({ "nvim-telescope/telescope-file-browser.nvim" })
 
 -- File browser
 use({
-	"kyazdani42/nvim-tree.lua",
-	requires = {
-		"kyazdani42/nvim-web-devicons",
-	},
-	config = get_config("nvim-tree"),
+    "kyazdani42/nvim-tree.lua",
+    requires = {
+        "kyazdani42/nvim-web-devicons",
+    },
+    config = get_config("nvim-tree"),
 })
 -- Alternatively:
 -- use {
@@ -131,7 +138,7 @@ use({
 -- }
 
 -- Better search highlight/progress
-use ({
+use({
     "kevinhwang91/nvim-hlslens",
     config = get_config("hlslens"),
 })
@@ -148,7 +155,7 @@ use({
 -- Improved tabline
 use({
     "nanozuki/tabby.nvim",
-    config = get_config("tabby")
+    config = get_config("tabby"),
 })
 
 -- fzf implementation
@@ -169,9 +176,9 @@ use({ "rcarriga/nvim-notify", config = get_config("notify") })
 
 -- Status line
 use({
-	"nvim-lualine/lualine.nvim",
-	config = get_config("lualine"),
-	requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    "nvim-lualine/lualine.nvim",
+    config = get_config("lualine"),
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
 })
 
 -- Startup dashboard
@@ -189,33 +196,33 @@ use({ "mvllow/modes.nvim", config = get_config("modes") })
 
 -- Language servers
 use({
-	"neovim/nvim-lspconfig",
-	requires = {
-		{
-			"williamboman/mason-lspconfig.nvim",
-			requires = {
-				{
-					"williamboman/mason.nvim",
-					config = get_config("mason"),
-				},
-			},
-			config = get_config("mason-lspconfig"),
-		},
-	},
-	config = get_config("lsp"),
+    "neovim/nvim-lspconfig",
+    requires = {
+        {
+            "williamboman/mason-lspconfig.nvim",
+            requires = {
+                {
+                    "williamboman/mason.nvim",
+                    config = get_config("mason"),
+                },
+            },
+            config = get_config("mason-lspconfig"),
+        },
+    },
+    config = get_config("lsp"),
 })
 
 -- Typescript LSP setup
 use({
-	"jose-elias-alvarez/typescript.nvim",
-	requires = { { "neovim/nvim-lspconfig" } },
-	config = get_config("typescript"),
+    "jose-elias-alvarez/typescript.nvim",
+    requires = { { "neovim/nvim-lspconfig" } },
+    config = get_config("typescript"),
 })
 
 -- Debugger
 use({
-	"mfussenegger/nvim-dap",
-	config = get_config("dap"),
+    "mfussenegger/nvim-dap",
+    config = get_config("dap"),
 })
 use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 use({ "nvim-telescope/telescope-dap.nvim" })
@@ -223,11 +230,11 @@ use({ "theHamsta/nvim-dap-virtual-text" })
 
 -- Winbar location
 if vim.version().minor >= 8 then
-	use({
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig",
-		config = get_config("navic"),
-	})
+    use({
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig",
+        config = get_config("navic"),
+    })
 end
 
 -- Editorconfig support
@@ -235,9 +242,9 @@ use({ "gpanders/editorconfig.nvim" })
 
 -- Smart language tree parsing
 use({
-	"nvim-treesitter/nvim-treesitter",
-	config = get_config("treesitter"),
-	run = ":TSUpdate",
+    "nvim-treesitter/nvim-treesitter",
+    config = get_config("treesitter"),
+    run = ":TSUpdate",
 })
 
 -- Syntax aware text-objects, select, move, swap, and peek support
@@ -248,17 +255,17 @@ use("JoosepAlviste/nvim-ts-context-commentstring")
 
 -- Autocompletion
 use({
-	"hrsh7th/nvim-cmp",
-	requires = {
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "hrsh7th/cmp-cmdline" },
-		{ "hrsh7th/cmp-vsnip" },
-		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-		{ "f3fora/cmp-spell", { "hrsh7th/cmp-calc" } },
-	},
-	config = get_config("cmp"),
+    "hrsh7th/nvim-cmp",
+    requires = {
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-buffer" },
+        { "hrsh7th/cmp-path" },
+        { "hrsh7th/cmp-cmdline" },
+        { "hrsh7th/cmp-vsnip" },
+        { "hrsh7th/cmp-nvim-lsp-signature-help" },
+        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" } },
+    },
+    config = get_config("cmp"),
 })
 
 -- Handsome folds
@@ -271,9 +278,9 @@ use({
 
 -- Handsome diffs and utils
 use({
-	"sindrets/diffview.nvim",
-	config = get_config("diffview"),
-	requires = "nvim-lua/plenary.nvim",
+    "sindrets/diffview.nvim",
+    config = get_config("diffview"),
+    requires = "nvim-lua/plenary.nvim",
 })
 
 -- Speedy splitting/joining lines
@@ -284,24 +291,24 @@ use({ "hrsh7th/vim-vsnip", config = get_config("vsnip") })
 
 -- Snippets collection for a set of different programming languages for faster development
 use({
-	"rafamadriz/friendly-snippets",
-	requires = {
-		{ "hrsh7th/vim-vsnip" },
-	},
+    "rafamadriz/friendly-snippets",
+    requires = {
+        { "hrsh7th/vim-vsnip" },
+    },
 })
 
 -- Git signs à la gitgutter
 use({
-	"lewis6991/gitsigns.nvim",
-	requires = { "nvim-lua/plenary.nvim" },
-	event = "BufReadPre",
-	config = get_config("gitsigns"),
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    event = "BufReadPre",
+    config = get_config("gitsigns"),
 })
 
 use({
-	"jose-elias-alvarez/null-ls.nvim",
-	config = get_config("null-ls"),
-	requires = { "nvim-lua/plenary.nvim" },
+    "jose-elias-alvarez/null-ls.nvim",
+    config = get_config("null-ls"),
+    requires = { "nvim-lua/plenary.nvim" },
 })
 
 -- Don't rearrange splits when closing buffers
@@ -309,26 +316,26 @@ use({ "famiu/bufdelete.nvim" })
 
 -- Adds icons to LSP autocomplete
 use({
-	"onsails/lspkind-nvim",
-	requires = {
-		{ "famiu/bufdelete.nvim" },
-	},
+    "onsails/lspkind-nvim",
+    requires = {
+        { "famiu/bufdelete.nvim" },
+    },
 })
 
 -- Show LSP-based signatures while typing
 use({
-	"ray-x/lsp_signature.nvim",
-	requires = {
-		{ "neovim/nvim-lspconfig" },
-	},
+    "ray-x/lsp_signature.nvim",
+    requires = {
+        { "neovim/nvim-lspconfig" },
+    },
 })
 
 -- Highlight arguments via Treesitter
-use {
-    'm-demare/hlargs.nvim',
-    requires = { 'nvim-treesitter/nvim-treesitter' },
-    config = get_config("hlargs")
-}
+use({
+    "m-demare/hlargs.nvim",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = get_config("hlargs"),
+})
 
 -- Color picker
 -- use {
@@ -338,37 +345,37 @@ use {
 
 -- Symbol sidebar à la tagbar
 use({
-	"simrat39/symbols-outline.nvim",
-	cmd = { "SymbolsOutline" },
-	config = get_config("symbols"),
+    "simrat39/symbols-outline.nvim",
+    cmd = { "SymbolsOutline" },
+    config = get_config("symbols"),
 })
 
 -- Indent guides
 use({
-	"lukas-reineke/indent-blankline.nvim",
-	event = "BufReadPre",
-	config = get_config("indent-blankline"),
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufReadPre",
+    config = get_config("indent-blankline"),
 })
 
 -- Better surround
 use({
-	"echasnovski/mini.nvim",
-	config = get_config("mini"),
+    "echasnovski/mini.nvim",
+    config = get_config("mini"),
 })
 
 -- Show all troubles in one spot
 use({
-	"folke/trouble.nvim",
-	requires = "kyazdani42/nvim-web-devicons",
-	config = get_config("trouble"),
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = get_config("trouble"),
 })
 
 -- Fancify TODOs and NOTEs
 use({
-	"folke/todo-comments.nvim",
-	requires = "nvim-lua/plenary.nvim",
-	event = "BufReadPost",
-	config = get_config("todo"),
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    event = "BufReadPost",
+    config = get_config("todo"),
 })
 
 -- Better dot repeat
@@ -380,14 +387,14 @@ use({ "tpope/vim-repeat" })
 
 -- Smooth scrolling
 use({
-	"karb94/neoscroll.nvim",
-	config = get_config("neoscroll"),
+    "karb94/neoscroll.nvim",
+    config = get_config("neoscroll"),
 })
 
 -- Highlight other uses of the current word
 use({
-	"RRethy/vim-illuminate",
-	config = get_config("illuminate"),
+    "RRethy/vim-illuminate",
+    config = get_config("illuminate"),
 })
 
 -- Improved highlight under cursor (star) functionality/etc
@@ -401,14 +408,14 @@ use({ "folke/which-key.nvim", event = "VimEnter", config = get_config("which") }
 
 -- Persist and toggle multiple terminals
 use({
-	"akinsho/nvim-toggleterm.lua",
-	config = get_config("toggleterm"),
+    "akinsho/nvim-toggleterm.lua",
+    config = get_config("toggleterm"),
 })
 
 -- Move through buffers fast
 use({
-	"ggandor/leap.nvim",
-	config = get_config("leap"),
+    "ggandor/leap.nvim",
+    config = get_config("leap"),
 })
 -- Alternatively:
 -- use {

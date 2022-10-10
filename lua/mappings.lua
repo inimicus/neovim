@@ -3,7 +3,7 @@
 -- =============================================================================
 
 local map = vim.api.nvim_set_keymap
-local default_options = {noremap = true, silent = true}
+local default_options = { noremap = true, silent = true }
 
 -- -----------------------------------------------------------------------------
 -- Commands
@@ -33,8 +33,8 @@ map("n", "<C-L>", "<C-W><C-L>", default_options)
 map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
 -- Assist with sticky shift/fingers
-vim.cmd[[command! WQ wq]]
-vim.cmd[[command! Wq wq]]
-vim.cmd[[command! W w]]
-vim.cmd[[command! Q q]]
-vim.cmd[[command! Qa qa]]
+vim.cmd([[command! WQ wq]])
+vim.cmd([[command! Wq wq]])
+vim.cmd([[command! W w]])
+vim.cmd([[command! Q q]])
+vim.cmd([[command! Qa qa]])
