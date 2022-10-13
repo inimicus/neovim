@@ -44,6 +44,8 @@ local lsp_flags = {
 local servers = {
     "bashls",
     "dockerls",
+    "emmet_ls",
+    "eslint",
     "intelephense",
     "jsonls",
     "pylsp",
