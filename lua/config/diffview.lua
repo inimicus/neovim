@@ -4,5 +4,5 @@ if not status_ok then
 end
 
 vim.opt.fillchars:append({
-    diff = '•',
+    diff = '╱',
 })
