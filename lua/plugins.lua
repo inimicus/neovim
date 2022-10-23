@@ -434,3 +434,15 @@ use({ "cuducos/yaml.nvim", ft = { "yaml" } })
 --     requires = {"MunifTanjim/nui.nvim"},
 --     config = get_config("fine-cmdline")
 -- }
+
+-- Replaces the UI for messages, cmdline and the popupmenu
+use({
+  "folke/noice.nvim",
+  event = "VimEnter",
+  config = get_config("noice"),
+  requires = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+        "nvim-telescope/telescope.nvim",
+    }
+})
