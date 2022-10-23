@@ -63,6 +63,7 @@ packer.init({
     -- Time in ms to include a plugin in the profile
     threshold = 0,
     compile_path = compile_path,
+    max_jobs = 10,
 })
 
 packer.reset()
