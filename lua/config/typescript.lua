@@ -3,12 +3,16 @@ if not status_ok then
     return
 end
 
+local navic_installed, navic = pcall(require, "nvim-navic")
 
 typescript.setup({
     server = {
-        capabilities = capabilities,
-        on_attach = function(_, bufnr)
-            vim.api.nvim_buf_set_option(bufnr, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
-        end
-    }
-});
+        on_attach = function(client, bufnr)
+            if navic_installed then
+                if client.server_capabilities.documentSymbolProvider then
+                    navic.attach(client, bufnr)
+                end
+            end
+        end,
+    },
+})
