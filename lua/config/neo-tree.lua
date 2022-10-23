@@ -12,13 +12,24 @@ vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 -- If you want icons for diagnostic errors, you'll need to define them somewhere:
 -- NOTE: this is changed from v1.x, which used the old style of highlight groups
 -- in the form "LspDiagnosticsSignWarning"
-vim.fn.sign_define("DiagnosticSignError", {text = " ", texthl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSignWarn"})
-vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
-vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
+vim.fn.sign_define(
+    "DiagnosticSignError",
+    { text = " ", texthl = "DiagnosticSignError" }
+)
+vim.fn.sign_define(
+    "DiagnosticSignWarn",
+    { text = " ", texthl = "DiagnosticSignWarn" }
+)
+vim.fn.sign_define(
+    "DiagnosticSignInfo",
+    { text = " ", texthl = "DiagnosticSignInfo" }
+)
+vim.fn.sign_define(
+    "DiagnosticSignHint",
+    { text = "", texthl = "DiagnosticSignHint" }
+)
 
-neotree.setup(
-{
+neotree.setup({
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
@@ -55,17 +66,17 @@ neotree.setup(
         git_status = {
             symbols = {
                 -- Change type
-                added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-                modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-                deleted   = "✖",-- this can only be used in the git_status source
-                renamed   = "",-- this can only be used in the git_status source
+                added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+                modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+                deleted = "✖", -- this can only be used in the git_status source
+                renamed = "", -- this can only be used in the git_status source
                 -- Status type
                 untracked = "",
-                ignored   = "",
-                unstaged  = "",
-                staged    = "",
-                conflict  = "",
-            }
+                ignored = "",
+                unstaged = "",
+                staged = "",
+                conflict = "",
+            },
         },
     },
     window = {
@@ -76,9 +87,9 @@ neotree.setup(
             nowait = true,
         },
         mappings = {
-            -- ["<space>"] = { 
-            --     "toggle_node", 
-            --     nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
+            -- ["<space>"] = {
+            --     "toggle_node",
+            --     nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
             -- },
             -- ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
@@ -98,7 +109,7 @@ neotree.setup(
             ["m"] = "move", -- takes text input for destination
             ["q"] = "close_window",
             ["R"] = "refresh",
-        }
+        },
     },
     nesting_rules = {},
     filesystem = {
@@ -108,7 +119,7 @@ neotree.setup(
             hide_gitignored = true,
             hide_by_name = {
                 ".DS_Store",
-                "thumbs.db"
+                "thumbs.db",
                 --"node_modules"
             },
             hide_by_pattern = { -- uses glob style patterns
@@ -120,14 +131,14 @@ neotree.setup(
             },
         },
         follow_current_file = false, -- This will find and focus the file in the active buffer every
-                                     -- time the current file is changed while the tree is open.
+        -- time the current file is changed while the tree is open.
         hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-                                                -- in whatever position is specified in window.position
-                              -- "open_current",-- netrw disabled, opening a directory opens within the
-                                                -- window like netrw would, regardless of window.position
-                              -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+        -- in whatever position is specified in window.position
+        -- "open_current",-- netrw disabled, opening a directory opens within the
+        -- window like netrw would, regardless of window.position
+        -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
         use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-                                        -- instead of relying on nvim autocmd events.
+        -- instead of relying on nvim autocmd events.
         window = {
             mappings = {
                 ["<bs>"] = "navigate_up",
@@ -136,8 +147,8 @@ neotree.setup(
                 ["/"] = "fuzzy_finder",
                 ["f"] = "filter_on_submit",
                 ["<c-x>"] = "clear_filter",
-            }
-        }
+            },
+        },
     },
     buffers = {
         show_unloaded = true,
@@ -146,25 +157,24 @@ neotree.setup(
                 ["bd"] = "buffer_delete",
                 ["<bs>"] = "navigate_up",
                 ["."] = "set_root",
-            }
+            },
         },
     },
     git_status = {
         window = {
             position = "float",
             mappings = {
-                ["A"]  = "git_add_all",
+                ["A"] = "git_add_all",
                 ["gu"] = "git_unstage_file",
                 ["ga"] = "git_add_file",
                 ["gr"] = "git_revert_file",
                 ["gc"] = "git_commit",
                 ["gp"] = "git_push",
                 ["gg"] = "git_commit_and_push",
-            }
-        }
-    }
+            },
+        },
+    },
 })
-
 
 -- Default config
 -- via :lua require("neo-tree").paste_default_config()

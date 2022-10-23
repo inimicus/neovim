@@ -3,55 +3,55 @@ if not status_ok then
     return
 end
 
-gitsigns.setup {
+gitsigns.setup({
     keymaps = {
         -- Default keymap options
-        noremap = false
+        noremap = false,
     },
     signs = {
         add = {
             hl = "GitSignsAdd",
             text = "│",
             numhl = "GitSignsAddNr",
-            linehl = "GitSignsAddLn"
+            linehl = "GitSignsAddLn",
         },
         change = {
             hl = "GitSignsChange",
             text = "│",
             numhl = "GitSignsChangeNr",
-            linehl = "GitSignsChangeLn"
+            linehl = "GitSignsChangeLn",
         },
         delete = {
             hl = "GitSignsDelete",
             text = "_",
             numhl = "GitSignsDeleteNr",
-            linehl = "GitSignsDeleteLn"
+            linehl = "GitSignsDeleteLn",
         },
         topdelete = {
             hl = "GitSignsDelete",
             text = "‾",
             numhl = "GitSignsDeleteNr",
-            linehl = "GitSignsDeleteLn"
+            linehl = "GitSignsDeleteLn",
         },
         changedelete = {
             hl = "GitSignsChange",
             text = "~",
             numhl = "GitSignsChangeNr",
-            linehl = "GitSignsChangeLn"
-        }
+            linehl = "GitSignsChangeLn",
+        },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
     numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
     linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-    watch_gitdir = {interval = 1000, follow_files = true},
+    watch_gitdir = { interval = 1000, follow_files = true },
     attach_to_untracked = true,
     -- git-blame provides also the time in contrast to gitsigns
     current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_formatter_opts = {
-        relative_time = true
+        relative_time = true,
     },
-    current_line_blame_formatter = ' <author> (<author_time:%Y-%m-%d>) • <summary> ',
+    current_line_blame_formatter = " <author> (<author_time:%Y-%m-%d>) • <summary> ",
     current_line_blame_opts = {
         virt_text = true,
         virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
@@ -68,14 +68,19 @@ gitsigns.setup {
         style = "minimal",
         relative = "cursor",
         row = 0,
-        col = 1
+        col = 1,
     },
-    diff_opts = {internal = true},
-    yadm = {enable = false}
-}
+    diff_opts = { internal = true },
+    yadm = { enable = false },
+})
 
 local installed, kanagawa = pcall(require, "kanagawa.colors")
 if installed then
     local colors = kanagawa.setup()
-    vim.cmd("hi GitSignsCurrentLineBlame cterm=italic gui=italic guifg=" .. colors.sumiInk4 .. " guibg=" .. colors.bg)
+    vim.cmd(
+        "hi GitSignsCurrentLineBlame cterm=italic gui=italic guifg="
+        .. colors.sumiInk4
+        .. " guibg="
+        .. colors.bg
+    )
 end

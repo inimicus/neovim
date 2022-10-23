@@ -8,17 +8,17 @@ end
 local illuminate_installed, illuminate = pcall(require, "illuminate")
 
 if illuminate_installed then
-    vim.api.nvim_create_autocmd('User', {
-        pattern = 'LeapEnter',
-        callback = function ()
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "LeapEnter",
+        callback = function()
             illuminate.pause()
-        end
+        end,
     })
 
-    vim.api.nvim_create_autocmd('User', {
-        pattern = 'LeapLeave',
-        callback = function ()
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "LeapLeave",
+        callback = function()
             illuminate.resume()
-        end
+        end,
     })
 end

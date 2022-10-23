@@ -15,7 +15,7 @@ end
 local execute = vim.api.nvim_command
 local fn = vim.fn
 local install_path =
-    string.format("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
+string.format("%s/site/pack/packer/start/packer.nvim", fn.stdpath("data"))
 
 -- Via https://github.com/tjdevries/config_manager
 local download_packer = function()
@@ -26,7 +26,7 @@ local download_packer = function()
     print("Downloading packer.nvim...")
 
     local directory =
-        string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))
+    string.format("%s/site/pack/packer/start/", vim.fn.stdpath("data"))
 
     fn.mkdir(directory, "p")
 
@@ -55,7 +55,7 @@ end
 local packer = require("packer")
 local use = packer.use
 local compile_path =
-    string.format("%s/plugin/packer_compiled.lua", install_path)
+string.format("%s/plugin/packer_compiled.lua", install_path)
 
 packer.init({
     -- Set `:PackerCompile profile=true` to enable profiling
@@ -437,12 +437,12 @@ use({ "cuducos/yaml.nvim", ft = { "yaml" } })
 
 -- Replaces the UI for messages, cmdline and the popupmenu
 use({
-  "folke/noice.nvim",
-  event = "VimEnter",
-  config = get_config("noice"),
-  requires = {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = get_config("noice"),
+    requires = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
         "nvim-telescope/telescope.nvim",
-    }
+    },
 })

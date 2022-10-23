@@ -15,7 +15,7 @@ comment.setup({
     ---Could be a regex string or a function that returns a regex string.
     ---Example: Use '^$' to ignore empty lines
     ---@type string|function
-    ignore = '^$',
+    ignore = "^$",
 
     ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
     ---@type table
@@ -32,18 +32,18 @@ comment.setup({
     ---@type table
     toggler = {
         ---line-comment keymap
-        line = 'gcc',
+        line = "gcc",
         ---block-comment keymap
-        block = 'gbc',
+        block = "gbc",
     },
 
     ---LHS of operator-pending mapping in NORMAL + VISUAL mode
     ---@type table
     opleader = {
         ---line-comment keymap
-        line = 'gc',
+        line = "gc",
         ---block-comment keymap
-        block = 'gb',
+        block = "gb",
     },
 
     ---Pre-hook, called before commenting the line

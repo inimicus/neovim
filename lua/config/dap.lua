@@ -9,55 +9,54 @@ local registry = require("mason-registry")
 -- vim.highlight.create('DapLogPoint', { ctermbg=0, guifg='#61afef', guibg='#31353f' }, false)
 -- vim.highlight.create('DapStopped', { ctermbg=0, guifg='#98c379', guibg='#31353f' }, false)
 
-vim.fn.sign_define('DapBreakpoint', {
-    text = '',
-    texthl = 'DapBreakpoint',
-    linehl = 'DapBreakpoint',
-    numhl = 'DapBreakpoint'
+vim.fn.sign_define("DapBreakpoint", {
+    text = "",
+    texthl = "DapBreakpoint",
+    linehl = "DapBreakpoint",
+    numhl = "DapBreakpoint",
 })
-vim.fn.sign_define('DapBreakpointCondition', {
-    text = '',
-    texthl = 'DapBreakpoint',
-    linehl = 'DapBreakpoint',
-    numhl = 'DapBreakpoint'
+vim.fn.sign_define("DapBreakpointCondition", {
+    text = "",
+    texthl = "DapBreakpoint",
+    linehl = "DapBreakpoint",
+    numhl = "DapBreakpoint",
 })
-vim.fn.sign_define('DapBreakpointRejected', {
-    text = '',
-    texthl = 'DapBreakpoint',
-    linehl = 'DapBreakpoint',
-    numhl = 'DapBreakpoint'
+vim.fn.sign_define("DapBreakpointRejected", {
+    text = "",
+    texthl = "DapBreakpoint",
+    linehl = "DapBreakpoint",
+    numhl = "DapBreakpoint",
 })
-vim.fn.sign_define('DapLogPoint', {
-    text = '',
-    texthl = 'DapLogPoint',
-    linehl = 'DapLogPoint',
-    numhl = 'DapLogPoint'
+vim.fn.sign_define("DapLogPoint", {
+    text = "",
+    texthl = "DapLogPoint",
+    linehl = "DapLogPoint",
+    numhl = "DapLogPoint",
 })
-vim.fn.sign_define('DapStopped', {
-    text = '',
-    texthl = 'DapStopped',
-    linehl = 'DapStopped',
-    numhl = 'DapStopped'
+vim.fn.sign_define("DapStopped", {
+    text = "",
+    texthl = "DapStopped",
+    linehl = "DapStopped",
+    numhl = "DapStopped",
 })
 
 if registry.is_installed("php-debug-adapter") then
     dap.adapters.php = {
-        type = 'executable',
-        command = "php-debug-adapter"
+        type = "executable",
+        command = "php-debug-adapter",
     }
     dap.configurations.php = {
         {
-            type = 'php',
-            request = 'launch',
-            name = 'Listen for xdebug',
-            port = '9003',
+            type = "php",
+            request = "launch",
+            name = "Listen for xdebug",
+            port = "9003",
             log = false,
-            serverSourceRoot = '/web/',
-            localSourceRoot = '/Users/gjennings/Sites/myintelisys/code/',
+            serverSourceRoot = "/web/",
+            localSourceRoot = "/Users/gjennings/Sites/myintelisys/code/",
         },
     }
 end
-
 
 require("nvim-dap-virtual-text").setup()
 

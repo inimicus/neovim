@@ -113,8 +113,7 @@ local statusLineSections = {
                 end
                 for _, client in ipairs(clients) do
                     local filetypes = client.config.filetypes
-                    if
-                        filetypes
+                    if filetypes
                         and vim.fn.index(filetypes, buf_ft) ~= -1
                         and client.name ~= "null-ls"
                     then

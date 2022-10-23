@@ -23,14 +23,15 @@ indent.setup({
         "todoist",
         "txt",
         "undotree",
+        "vim",
         "vimwiki",
         "vista",
         -- for all buffers without a file type
-        ""
+        "",
     },
     char = "│",
     -- char_list = {"|", "¦", "┆", "┊"},
-    buftype_exclude = {"terminal", "nofile", "dashboard"},
+    buftype_exclude = { "terminal", "nofile", "dashboard" },
     show_trailing_blankline_indent = false,
     show_first_indent_level = false,
     show_current_context = true,

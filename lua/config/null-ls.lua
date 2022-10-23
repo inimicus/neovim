@@ -12,7 +12,7 @@ local sources = {
     diagnostics.yamllint,
     -- diagnostics.shellcheck,
     formatting.prettierd,
-    formatting.phpcsfixer.with({prefer_local = "vendor/bin"}),
+    formatting.phpcsfixer.with({ prefer_local = "vendor/bin" }),
     formatting.shfmt,
     formatting.stylua,
 }

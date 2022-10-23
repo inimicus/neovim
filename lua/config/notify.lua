@@ -20,7 +20,7 @@ require("notify").setup({
         WARN = "",
         INFO = "",
         DEBUG = "",
-        TRACE = "✎"
-    }
+        TRACE = "✎",
+    },
 })
 vim.notify = require("notify")

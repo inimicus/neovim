@@ -3,7 +3,7 @@ if not status_ok then
     return
 end
 
-bufferline.setup {
+bufferline.setup({
     options = {
         mode = "tabs",
         diagnostics = "nvim_lsp",
@@ -14,4 +14,4 @@ bufferline.setup {
         sort_by = "tabs",
         show_tab_indicator = true,
     },
-}
+})

@@ -4,82 +4,82 @@ if not status_ok then
 end
 
 local headerOptions = {
-	{
-		[[        ___      ___      ___      ___      ___      ___       ]],
-		[[        `MM      `MM      `MM      `MM      `MM      `MM       ]],
-		[[         MM       MM       MM       MM       MM       MM       ]],
-		[[  ____   MM  __   MM  __   MM  __   MM  __   MM  __   MM  __   ]],
-		[[ 6MMMMb\ MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  ]],
-		[[MM'    ` MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb ]],
-		[[YM.      MM'   MM MM'   MM MM'   MM MM'   MM MM'   MM MM'   MM ]],
-		[[ YMMMMb  MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
-		[[     `Mb MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
-		[[L    ,MM MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
-		[[MYMMMM9 _MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_]],
-		[[                                                               ]],
-		[[                                                               ]]
-	},
-	{
-		[[___               ___ ___           ]],
-		[[`MM               `MM `MM           ]],
-		[[ MM                MM  MM           ]],
-		[[ MM  __     ____   MM  MM   _____   ]],
-		[[ MM 6MMb   6MMMMb  MM  MM  6MMMMMb  ]],
-		[[ MMM9 `Mb 6M'  `Mb MM  MM 6M'   `Mb ]],
-		[[ MM'   MM MM    MM MM  MM MM     MM ]],
-		[[ MM    MM MMMMMMMM MM  MM MM     MM ]],
-		[[ MM    MM MM       MM  MM MM     MM ]],
-		[[ MM    MM YM    d9 MM  MM YM.   ,M9 ]],
-		[[_MM_  _MM_ YMMMM9 _MM__MM_ YMMMMM9  ]],
-		[[                                    ]],
-		[[                                    ]]
-	},
-	{
-		[[         ___             ]],
-		[[         `MM      6MMMb  ]],
-		[[          MM     6M' `Mb ]],
-		[[  _____   MM  __ `'   MM ]],
-		[[ 6MMMMMb  MM 6MMb     MM ]],
-		[[6M'   `Mb MMM9 `Mb   ,M9 ]],
-		[[MM     MM MM'   MM  MM9  ]],
-		[[MM     MM MM    MM  M    ]],
-		[[MM     MM MM    MM       ]],
-		[[YM.   ,M9 MM    MM 68b   ]],
-		[[ YMMMMM9 _MM_  _MM_Y89   ]],
-		[[                         ]],
-		[[                         ]]
-	},
-	{
-		[[   __              ___                  ]],
-		[[  69MM             `MM                  ]],
-		[[ 6M' `              MM                  ]],
-		[[_MM____   ___   ____MM   __      ____   ]],
-		[[MMMM`MM    MM  6MMMMMM  6MMbMMM 6MMMMb  ]],
-		[[ MM  MM    MM 6M'  `MM 6M'`Mb  6M'  `Mb ]],
-		[[ MM  MM    MM MM    MM MM  MM  MM    MM ]],
-		[[ MM  MM    MM MM    MM YM.,M9  MMMMMMMM ]],
-		[[ MM  MM    MM MM    MM  YMM9   MM       ]],
-		[[ MM  YM.   MM YM.  ,MM (M      YM    d9 ]],
-		[[_MM_  YMMM9MM_ YMMMMMM_ YMMMMb. YMMMM9  ]],
-		[[                       6M    Yb         ]],
-		[[                       YM.   d9         ]],
-		[[                        YMMMM9          ]]
-	},
     {
-		[[                                  ___                  ]],
-		[[                                  `MM                  ]],
-		[[                                   MM                  ]],
-		[[____    _    ___  _____  ___  __   MM   __ ____    ___ ]],
-		[[`MM(   ,M.   )M' 6MMMMMb `MM 6MMb  MM   d' `MM(    )M' ]],
-		[[ `Mb   dMb   d' 6M'   `Mb MMM9 `Mb MM  d'   `Mb    d'  ]],
-		[[  YM. ,PYM. ,P  MM     MM MM'   MM MM d'     YM.  ,P   ]],
-		[[  `Mb d'`Mb d'  MM     MM MM    MM MMdM.      MM  M    ]],
-		[[   YM,P  YM,P   MM     MM MM    MM MMPYM.     `Mbd'    ]],
-		[[   `MM'  `MM'   YM.   ,M9 MM    MM MM  YM.     YMP     ]],
-		[[    YP    YP     YMMMMM9 _MM_  _MM_MM_  YM._    M      ]],
-		[[                                               d'      ]],
-		[[                                           (8),P       ]],
-		[[                                            YMM        ]]
+        [[        ___      ___      ___      ___      ___      ___       ]],
+        [[        `MM      `MM      `MM      `MM      `MM      `MM       ]],
+        [[         MM       MM       MM       MM       MM       MM       ]],
+        [[  ____   MM  __   MM  __   MM  __   MM  __   MM  __   MM  __   ]],
+        [[ 6MMMMb\ MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  MM 6MMb  ]],
+        [[MM'    ` MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb MMM9 `Mb ]],
+        [[YM.      MM'   MM MM'   MM MM'   MM MM'   MM MM'   MM MM'   MM ]],
+        [[ YMMMMb  MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
+        [[     `Mb MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
+        [[L    ,MM MM    MM MM    MM MM    MM MM    MM MM    MM MM    MM ]],
+        [[MYMMMM9 _MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_MM_  _MM_]],
+        [[                                                               ]],
+        [[                                                               ]],
+    },
+    {
+        [[___               ___ ___           ]],
+        [[`MM               `MM `MM           ]],
+        [[ MM                MM  MM           ]],
+        [[ MM  __     ____   MM  MM   _____   ]],
+        [[ MM 6MMb   6MMMMb  MM  MM  6MMMMMb  ]],
+        [[ MMM9 `Mb 6M'  `Mb MM  MM 6M'   `Mb ]],
+        [[ MM'   MM MM    MM MM  MM MM     MM ]],
+        [[ MM    MM MMMMMMMM MM  MM MM     MM ]],
+        [[ MM    MM MM       MM  MM MM     MM ]],
+        [[ MM    MM YM    d9 MM  MM YM.   ,M9 ]],
+        [[_MM_  _MM_ YMMMM9 _MM__MM_ YMMMMM9  ]],
+        [[                                    ]],
+        [[                                    ]],
+    },
+    {
+        [[         ___             ]],
+        [[         `MM      6MMMb  ]],
+        [[          MM     6M' `Mb ]],
+        [[  _____   MM  __ `'   MM ]],
+        [[ 6MMMMMb  MM 6MMb     MM ]],
+        [[6M'   `Mb MMM9 `Mb   ,M9 ]],
+        [[MM     MM MM'   MM  MM9  ]],
+        [[MM     MM MM    MM  M    ]],
+        [[MM     MM MM    MM       ]],
+        [[YM.   ,M9 MM    MM 68b   ]],
+        [[ YMMMMM9 _MM_  _MM_Y89   ]],
+        [[                         ]],
+        [[                         ]],
+    },
+    {
+        [[   __              ___                  ]],
+        [[  69MM             `MM                  ]],
+        [[ 6M' `              MM                  ]],
+        [[_MM____   ___   ____MM   __      ____   ]],
+        [[MMMM`MM    MM  6MMMMMM  6MMbMMM 6MMMMb  ]],
+        [[ MM  MM    MM 6M'  `MM 6M'`Mb  6M'  `Mb ]],
+        [[ MM  MM    MM MM    MM MM  MM  MM    MM ]],
+        [[ MM  MM    MM MM    MM YM.,M9  MMMMMMMM ]],
+        [[ MM  MM    MM MM    MM  YMM9   MM       ]],
+        [[ MM  YM.   MM YM.  ,MM (M      YM    d9 ]],
+        [[_MM_  YMMM9MM_ YMMMMMM_ YMMMMb. YMMMM9  ]],
+        [[                       6M    Yb         ]],
+        [[                       YM.   d9         ]],
+        [[                        YMMMM9          ]],
+    },
+    {
+        [[                                  ___                  ]],
+        [[                                  `MM                  ]],
+        [[                                   MM                  ]],
+        [[____    _    ___  _____  ___  __   MM   __ ____    ___ ]],
+        [[`MM(   ,M.   )M' 6MMMMMb `MM 6MMb  MM   d' `MM(    )M' ]],
+        [[ `Mb   dMb   d' 6M'   `Mb MMM9 `Mb MM  d'   `Mb    d'  ]],
+        [[  YM. ,PYM. ,P  MM     MM MM'   MM MM d'     YM.  ,P   ]],
+        [[  `Mb d'`Mb d'  MM     MM MM    MM MMdM.      MM  M    ]],
+        [[   YM,P  YM,P   MM     MM MM    MM MMPYM.     `Mbd'    ]],
+        [[   `MM'  `MM'   YM.   ,M9 MM    MM MM  YM.     YMP     ]],
+        [[    YP    YP     YMMMMM9 _MM_  _MM_MM_  YM._    M      ]],
+        [[                                               d'      ]],
+        [[                                           (8),P       ]],
+        [[                                            YMM        ]],
     },
     {
         [[         ___                                      ]],
@@ -94,7 +94,7 @@ local headerOptions = {
         [[MM.  ,MM  MM.  ,M9 YM.   ,M9 MM      YM.  , 68b   ]],
         [[`YMMM9'Yb_MYMMMM9   YMMMMM9 _MM_      YMMM9 Y89   ]],
         [[                                                  ]],
-        [[                                                  ]]
+        [[                                                  ]],
     },
     {
         [[                                                 8  ]],
@@ -109,7 +109,7 @@ local headerOptions = {
         [[L    ,MM  `MM'  `MM'   YM    d9 YM    d9 YM.  , 68b ]],
         [[MYMMMM9    YP    YP     YMMMM9   YMMMM9   YMMM9 Y89 ]],
         [[                                                    ]],
-        [[                                                    ]]
+        [[                                                    ]],
     },
     {
         [[                               ]],
@@ -124,7 +124,7 @@ local headerOptions = {
         [[ MM    MM MM YM.   d9 YM    d9 ]],
         [[_MM_  _MM_MM_ YMMMM9   YMMMM9  ]],
         [[                               ]],
-        [[                               ]]
+        [[                               ]],
     },
     {
         [[                                            6MMMb  ]],
@@ -139,7 +139,7 @@ local headerOptions = {
         [[_MM_     YMMMM9    YMMM9 _MM_         M      Y89   ]],
         [[                                     d'            ]],
         [[                                 (8),P             ]],
-        [[                                  YMM              ]]
+        [[                                  YMM              ]],
     },
     {
         [[                      ___                       ___ ]],
@@ -154,7 +154,7 @@ local headerOptions = {
         [[ MM     MM.  ,MM YM.  ,MM  MM YM.   d9 MM.  ,MM  MM ]],
         [[_MM_    `YMMM9'Yb.YMMMMMM__MM_ YMMMM9  `YMMM9'Yb_MM_]],
         [[                                                    ]],
-        [[                                                    ]]
+        [[                                                    ]],
     },
     {
         [[                                                                            ]],
@@ -169,7 +169,7 @@ local headerOptions = {
         [[MM.  ,MM   `MM'  `MM'   YM    d9 L    ,MM YM.   ,M9 MM    MM    MM YM    d9 ]],
         [[`YMMM9'Yb.  YP    YP     YMMMM9  MYMMMM9   YMMMMM9 _MM_  _MM_  _MM_ YMMMM9  ]],
         [[                                                                            ]],
-        [[                                                                            ]]
+        [[                                                                            ]],
     },
     {
         [[                                   ___             ]],
@@ -200,7 +200,7 @@ local headerOptions = {
         [[ MM  MM.  ,MM  MM    MM  YM.  , MM.  ,MM  L    ,MM  YM.  ,  MM  YM.   d9 ]],
         [[_MM_ `YMMM9'Yb_MM_  _MM_  YMMM9 `YMMM9'Yb.MYMMMM9    YMMM9 _MM_  YMMMM9  ]],
         [[                                                                         ]],
-        [[                                                                         ]]
+        [[                                                                         ]],
     },
     {
         [[                                   ___ ___                          ]],
@@ -215,7 +215,7 @@ local headerOptions = {
         [[YM    d9  d' `MM. YM.   d9 YM    d9 MM  MM YM    d9 MM    MM YM.  , ]],
         [[ YMMMM9 _d_  _)MM_ YMMMM9   YMMMM9 _MM__MM_ YMMMM9 _MM_  _MM_ YMMM9 ]],
         [[                                                                    ]],
-        [[                                                                    ]]
+        [[                                                                    ]],
     },
     {
         [[                               ___ ___ ]],
@@ -230,7 +230,7 @@ local headerOptions = {
         [[L    ,MM  `MM'  `MM'   YM    d9 MM  MM ]],
         [[MYMMMM9    YP    YP     YMMMM9 _MM__MM_]],
         [[                                       ]],
-        [[                                       ]]
+        [[                                       ]],
     },
     {
         [[___               ___ ___           ]],
@@ -245,7 +245,7 @@ local headerOptions = {
         [[ MM    MM YM    d9 MM  MM MM.  ,MM  ]],
         [[_MM_  _MM_ YMMMM9 _MM__MM_`YMMM9'Yb.]],
         [[                                    ]],
-        [[                                    ]]
+        [[                                    ]],
     },
     {
         [[___                        ___                    ]],
@@ -260,7 +260,7 @@ local headerOptions = {
         [[ MM    MM YM    d9 YM.   d9 MM  YM.  MM  MM    MM ]],
         [[_MM_  _MM_ YMMMM9   YMMMM9 _MM_  YM._MM__MM_  _MM_]],
         [[                                                  ]],
-        [[                                                  ]]
+        [[                                                  ]],
     },
     {
         [[                                                        ]],
@@ -275,7 +275,7 @@ local headerOptions = {
         [[ MM  MM    MM YM.  ,YM    d9 MM    MM L    ,MM YM    d9 ]],
         [[_MM__MM_  _MM_ YMMM9 YMMMM9 _MM_  _MM_MYMMMM9   YMMMM9  ]],
         [[                                                        ]],
-        [[                                                        ]]
+        [[                                                        ]],
     },
     {
         [[                ___                           8  ]],
@@ -290,8 +290,8 @@ local headerOptions = {
         [[   `MM'  `MM'    MM    MM YM.   ,M9 MM.  ,MM 68b ]],
         [[    YP    YP    _MM_  _MM_ YMMMMM9  `YMMM9'YbY89 ]],
         [[                                                 ]],
-        [[                                                 ]]
-    }
+        [[                                                 ]],
+    },
 }
 
 -- [[     ]],
@@ -308,39 +308,39 @@ local headerOptions = {
 local footerOptions = {
     {
         [[     ]],
-        [[Decent, inoffensive.]]
+        [[Decent, inoffensive.]],
     },
     {
         [[     ]],
-        [[Would recommend.]]
+        [[Would recommend.]],
     },
     {
         [[     ]],
-        [[Decidedly average]]
+        [[Decidedly average]],
     },
     {
         [[     ]],
-        [[Literally unplayable.]]
+        [[Literally unplayable.]],
     },
     {
         [[     ]],
-        [[Meh.]]
+        [[Meh.]],
     },
     {
         [[     ]],
-        [[Do not recommend.]]
+        [[Do not recommend.]],
     },
     {
         [[     ]],
-        [[It's okay, I guess.]]
+        [[It's okay, I guess.]],
     },
     {
         [[     ]],
-        [[Totes McGoats]]
+        [[Totes McGoats]],
     },
     {
         [[     ]],
-        [[Best 5ever.]]
+        [[Best 5ever.]],
     },
 }
 
@@ -361,33 +361,33 @@ db.custom_header = getHeader()
 db.custom_footer = getFooter()
 db.custom_center = {
     {
-        icon = '  ',
-        desc = 'Recent Files                            ',
-        action =  'Telescope oldfiles',
-        shortcut = 'SPC f r'
+        icon = "  ",
+        desc = "Recent Files                            ",
+        action = "Telescope oldfiles",
+        shortcut = "SPC f r",
     },
     {
-        icon = '  ',
-        desc = 'Find File                               ',
-        action = 'Telescope find_files find_command=rg,--hidden,--files,-S',
-        shortcut = 'SPC f f'
+        icon = "  ",
+        desc = "Find File                               ",
+        action = "Telescope find_files find_command=rg,--hidden,--files,-S",
+        shortcut = "SPC f f",
     },
     {
-        icon = '  ',
-        desc = 'New File                                ',
-        action = 'DashboardNewFile',
-        shortcut = 'SPC f n'
+        icon = "  ",
+        desc = "New File                                ",
+        action = "DashboardNewFile",
+        shortcut = "SPC f n",
     },
     {
-        icon = 'פּ  ',
-        desc ='File Browser                            ',
-        action =  'Telescope file_browser',
-        shortcut = 'SPC f p'
+        icon = "פּ  ",
+        desc = "File Browser                            ",
+        action = "Telescope file_browser",
+        shortcut = "SPC f p",
     },
     {
-        icon = '  ',
-        desc ='Search Text                             ',
-        action =  'Telescope live_grep',
-        shortcut = 'SPC s t'
+        icon = "  ",
+        desc = "Search Text                             ",
+        action = "Telescope live_grep",
+        shortcut = "SPC s t",
     },
 }

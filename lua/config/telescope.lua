@@ -7,20 +7,20 @@ local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 local custom_actions = {}
 
-telescope.setup {
+telescope.setup({
     extensions = {
         packer = {
             theme = "ivy",
-			layout_config = {
-				height = .5
-			}
+            layout_config = {
+                height = 0.5,
+            },
         },
         fzf = {
-            fuzzy = true,                    -- false will only do exact matching
-            override_generic_sorter = true,  -- override the generic sorter
-            override_file_sorter = true,     -- override the file sorter
-            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                             -- the default case_mode is "smart_case"
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
         },
         fzf_writer = {
             minimum_grep_characters = 2,
@@ -30,7 +30,7 @@ telescope.setup {
             -- Will probably slow down some aspects of the sorter, but can make color highlights.
             -- I will work on this more later.
             use_highlighter = true,
-        }
+        },
     },
     defaults = {
         file_ignore_patterns = {
@@ -38,7 +38,7 @@ telescope.setup {
             "%.jpg",
             "%.png",
             "%.gif",
-            "vendor"
+            "vendor",
         },
         vimgrep_arguments = {
             "rg",
@@ -48,7 +48,7 @@ telescope.setup {
             "--with-filename",
             "--line-number",
             "--column",
-            "--smart-case"
+            "--smart-case",
         },
         mappings = {
             i = {
@@ -66,7 +66,7 @@ telescope.setup {
                 -- ["<C-q>"] = actions.send_to_qflist,
                 ["<c-q>"] = trouble.smart_open_with_trouble,
                 ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous
+                ["<C-k>"] = actions.move_selection_previous,
             },
             n = {
                 ["<s-tab>"] = actions.toggle_selection
@@ -81,8 +81,8 @@ telescope.setup {
                 -- ["<C-q>"] = actions.send_to_qflist,
                 ["<c-q>"] = trouble.smart_open_with_trouble,
                 ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous
-            }
+                ["<C-k>"] = actions.move_selection_previous,
+            },
         },
         prompt_prefix = " ❯ ",
         selection_caret = " ",
@@ -95,17 +95,17 @@ telescope.setup {
             width = 0.75,
             prompt_position = "bottom",
             preview_cutoff = 120,
-            horizontal = {mirror = false},
-            vertical = {mirror = true}
+            horizontal = { mirror = false },
+            vertical = { mirror = true },
         },
-        file_sorter = require"telescope.sorters".get_fzf_sorter,
-        generic_sorter = require"telescope.sorters".get_fzf_sorter,
+        file_sorter = require("telescope.sorters").get_fzf_sorter,
+        generic_sorter = require("telescope.sorters").get_fzf_sorter,
         winblend = 0,
         border = {},
-        borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,
         use_less = true,
-        set_env = {["COLORTERM"] = "truecolor"} -- default = nil,
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
     },
     pickers = {
         buffers = {
@@ -122,11 +122,11 @@ telescope.setup {
                 },
                 n = {
                     ["<C-d>"] = actions.delete_buffer,
-                }
-            }
-        }
-    }
-}
+                },
+            },
+        },
+    },
+})
 
 telescope.load_extension("dap")
 telescope.load_extension("file_browser")
@@ -135,4 +135,9 @@ telescope.load_extension("noice")
 telescope.load_extension("packer")
 telescope.load_extension("projects")
 
-vim.api.nvim_set_keymap("n", "<Tab>", "<cmd>Telescope buffers<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+    "n",
+    "<Tab>",
+    "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true, ignore_current_buffer = true })<cr>",
+    { noremap = true, silent = true }
+)

@@ -11,7 +11,7 @@
 --   filetype = "php", -- if filetype does not match the parser name
 -- }
 
-require"nvim-treesitter.configs".setup {
+require("nvim-treesitter.configs").setup({
     -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     ensure_installed = {
         "bash",
@@ -27,7 +27,7 @@ require"nvim-treesitter.configs".setup {
         --"phpdoc",
         "scss",
         "typescript",
-        "yaml"
+        "yaml",
     },
     -- List of parsers to ignore installing
     ignore_install = {},
@@ -35,7 +35,7 @@ require"nvim-treesitter.configs".setup {
         -- false will disable the whole extension
         enable = true,
         -- list of language that will be disabled
-        disable = {}
+        disable = {},
     },
     incremental_selection = {
         enable = true,
@@ -43,11 +43,11 @@ require"nvim-treesitter.configs".setup {
             init_selection = "<CR>",
             scope_incremental = "<CR>",
             node_incremental = "<TAB>",
-            node_decremental = "<S-TAB>"
-        }
+            node_decremental = "<S-TAB>",
+        },
     },
-    indent = {enable = true},
-    autopairs = {{enable = true}},
+    indent = { enable = true },
+    autopairs = { { enable = true } },
     textobjects = {
         select = {
             enable = true,
@@ -64,19 +64,19 @@ require"nvim-treesitter.configs".setup {
                 ["ib"] = "@block.inner",
                 ["ab"] = "@block.outer",
                 ["ir"] = "@parameter.inner",
-                ["ar"] = "@parameter.outer"
-            }
-        }
+                ["ar"] = "@parameter.outer",
+            },
+        },
     },
     context_commentstring = {
-        enable = true
+        enable = true,
     },
     autotag = {
         enable = true,
-    }
+    },
     -- rainbow = {
     --     enable = true,
     --     extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
     --     max_file_lines = 2000 -- Do not enable for files with more than specified lines
     -- }
-}
+})

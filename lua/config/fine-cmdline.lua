@@ -9,23 +9,23 @@ fine.setup({
     cmdline = {
         enable_keymaps = true,
         smart_history = true,
-        prompt = " :"
+        prompt = " :",
     },
     popup = {
         position = {
             row = "10%",
-            col = "50%"
+            col = "50%",
         },
         size = {
-            width = "60%"
+            width = "60%",
         },
         border = {
-            style = "rounded"
+            style = "rounded",
         },
         win_options = {
-            winhighlight = "Normal:Normal,FloatBorder:FloatBorder"
-        }
-    }
+            winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+        },
+    },
 })
 
-map("n", ":", "<cmd>FineCmdline<CR>", {noremap = true, silent = true})
+map("n", ":", "<cmd>FineCmdline<CR>", { noremap = true, silent = true })

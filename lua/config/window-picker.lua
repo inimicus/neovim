@@ -13,8 +13,8 @@ windowPicker.setup({
             filetype = { "neo-tree", "neo-tree-popup", "notify", "quickfix" },
 
             -- if the buffer type is one of following, the window will be ignored
-            buftype = { 'terminal' },
+            buftype = { "terminal" },
         },
     },
-    other_win_hl_color = '#e35e4f',
+    other_win_hl_color = "#e35e4f",
 })
