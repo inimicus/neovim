@@ -41,6 +41,16 @@ local overrides = {
     LeapLabelPrimary = {fg = default_colors.fujiWhite},
     LeapLabelSecondary = {fg = default_colors.oldWhite},
     --LeapLabelSelected
+
+    -- Modes highlights
+    ModesCopy = { bg = default_colors.roninYellow },
+    ModesDelete = { bg = default_colors.autumnRed },
+    ModesInsert = { bg = default_colors.waveAqua1 },
+    ModesVisual = { bg = default_colors.crystalBlue },
+    ModesCopyCursorLineNr = { fg = default_colors.roninYellow, bold = true },
+    ModesDeleteCursorLineNr = { fg = default_colors.autumnRed, bold = true },
+    ModesInsertCursorLineNr = { fg = default_colors.waveAqua1, bold = true },
+    ModesVisualCursorLineNr = { fg = default_colors.crystalBlue, bold = true },
 }
 
 kanagawa.setup({
