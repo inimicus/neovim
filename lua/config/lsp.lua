@@ -1,7 +1,6 @@
 local nvim_lsp = require("lspconfig")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local navic_installed, navic = pcall(require, "nvim-navic")
 local ufo_installed, _ = pcall(require, "ufo")
