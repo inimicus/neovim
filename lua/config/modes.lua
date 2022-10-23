@@ -11,8 +11,9 @@ modes.setup({
     visual = "#9745be",
   },
 
-  -- cursorline highlight opacity
-  line_opacity = 0.1,
+    -- Enable cursorline initially, and disable cursorline for inactive windows
+    -- or ignored filetypes
+    set_cursorline = true,
 
   -- highlight cursor
   set_cursor = true,
