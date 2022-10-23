@@ -8,13 +8,13 @@ local default_colors = require("kanagawa.colors").setup()
 
 o.laststatus = 3
 o.fillchars:append({
-    horiz = '━',
-    horizup = '┻',
-    horizdown = '┳',
-    vert = '┃',
-    vertleft = '┨',
-    vertright = '┣',
-    verthoriz = '╋',
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vert = "┃",
+    vertleft = "┨",
+    vertright = "┣",
+    verthoriz = "╋",
 })
 
 local overrides = {
@@ -22,24 +22,36 @@ local overrides = {
     DashboardFooter = { fg = default_colors.crystalBlue, italic = true },
 
     -- Make errors legible
-    DiagnosticUnderlineError = { undercurl = true, sp = default_colors.autumnRed },
+    DiagnosticUnderlineError = {
+        undercurl = true,
+        sp = default_colors.autumnRed,
+    },
     Error = { fg = default_colors.autumnRed },
-    ErrorMsg = { link = 'Error' },
-    DiagnosticError = { link = 'Error' },
+    ErrorMsg = { link = "Error" },
+    DiagnosticError = { link = "Error" },
 
     -- Make the buffer line legible
-    BufferLineIndicatorSelected = { link = 'Cursor' },
+    BufferLineIndicatorSelected = { link = "Cursor" },
 
     -- Customize illuminated words
-    IlluminatedWordText = {fg = default_colors.autumnYellow, bg = default_colors.winterYellow},
-    IlluminatedWordRead = {fg = default_colors.autumnYellow, bg = default_colors.winterYellow},
-    IlluminatedWordWrite = {fg = default_colors.autumnYellow, bg = default_colors.winterYellow},
+    IlluminatedWordText = {
+        fg = default_colors.autumnYellow,
+        bg = default_colors.winterYellow,
+    },
+    IlluminatedWordRead = {
+        fg = default_colors.autumnYellow,
+        bg = default_colors.winterYellow,
+    },
+    IlluminatedWordWrite = {
+        fg = default_colors.autumnYellow,
+        bg = default_colors.winterYellow,
+    },
 
     -- Customize Leap visibility
-    LeapBackdrop = {fg = default_colors.sumiInk4},
-    LeapMatch = {fg = default_colors.carpYellow},
-    LeapLabelPrimary = {fg = default_colors.fujiWhite},
-    LeapLabelSecondary = {fg = default_colors.oldWhite},
+    LeapBackdrop = { fg = default_colors.sumiInk4 },
+    LeapMatch = { fg = default_colors.carpYellow },
+    LeapLabelPrimary = { fg = default_colors.fujiWhite },
+    LeapLabelSecondary = { fg = default_colors.oldWhite },
     --LeapLabelSelected
 
     -- Modes highlights
@@ -61,4 +73,4 @@ kanagawa.setup({
     -- colors = require('kanagawa.colors').setup({theme = 'dragon'}),
 })
 
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd([[colorscheme kanagawa]])
