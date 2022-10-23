@@ -1,23 +1,29 @@
 local status_ok, modes = pcall(require, "modes")
 if not status_ok then
-  return
+    return
 end
 
 modes.setup({
-  colors = {
-    copy = "#f5c359",
-    delete = "#c75c6a",
-    insert = "#78ccc5",
-    visual = "#9745be",
-  },
+    -- cursorline highlight opacity
+    line_opacity = 0.1,
 
     -- Enable cursorline initially, and disable cursorline for inactive windows
     -- or ignored filetypes
     set_cursorline = true,
 
-  -- highlight cursor
-  set_cursor = true,
+    -- highlight cursor
+    set_cursor = true,
 
-  -- Highlight in active window only
-  focus_only = false
+    -- Highlight in active window only
+    focus_only = true,
+
+    -- Enable line number highlights to match cursorline
+    set_number = true,
+
+    -- Disable modes highlights in specified filetypes
+    ignore_filetypes = {
+        "NvimTree",
+        "TelescopePrompt",
+        "vim",
+    },
 })
