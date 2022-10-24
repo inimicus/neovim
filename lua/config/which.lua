@@ -251,7 +251,7 @@ wk.register({
     },
     m = {
         name = "Misc",
-        m = { "<cmd>Telescope noice<cr>", "Messages" },
+        m = { "<cmd>Noice telescope<cr>", "Messages" },
         t = { "<cmd>FloatermNew --autoclose=2<cr>", "New Floaterm" },
         s = { "<cmd>SymbolsOutline<cr>", "Toggle SymbolsOutline" },
         S = { "<cmd>SidebarNvimToggle<cr>", "Toggle Sidebar" },
