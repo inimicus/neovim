@@ -14,9 +14,6 @@ modes.setup({
     -- highlight cursor
     set_cursor = true,
 
-    -- Highlight in active window only
-    focus_only = true,
-
     -- Enable line number highlights to match cursorline
     set_number = true,
 
