@@ -191,6 +191,15 @@ use({ "stevearc/dressing.nvim" })
 -- Modal cursor
 use({ "mvllow/modes.nvim", config = get_config("modes") })
 
+use({
+    "anuvyklack/windows.nvim",
+    requires = {
+        "anuvyklack/middleclass",
+        "anuvyklack/animation.nvim",
+    },
+    config = get_config("windows"),
+})
+
 -- -----------------------------------------------------------------------------
 -- Editing Plugins
 -- -----------------------------------------------------------------------------
