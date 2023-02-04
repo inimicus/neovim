@@ -183,7 +183,12 @@ use({
 })
 
 -- Startup dashboard
-use({ "glepnir/dashboard-nvim", config = get_config("dashboard") })
+use({
+    "glepnir/dashboard-nvim",
+    event = "VimEnter",
+    config = get_config("dashboard"),
+    requires = { "nvim-tree/nvim-web-devicons" },
+})
 
 -- Dress up menus/selections/prompts
 use({ "stevearc/dressing.nvim" })

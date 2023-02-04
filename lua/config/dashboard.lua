@@ -342,6 +342,10 @@ local footerOptions = {
         [[     ]],
         [[Best 5ever.]],
     },
+    {
+        [[     ]],
+        [[ANOTHER!]],
+    },
 }
 
 local function getRandom(num)
@@ -357,37 +361,72 @@ local function getFooter()
     return footerOptions[getRandom(#footerOptions)]
 end
 
-db.custom_header = getHeader()
-db.custom_footer = getFooter()
-db.custom_center = {
-    {
-        icon = "  ",
-        desc = "Recent Files                            ",
-        action = "Telescope oldfiles",
-        shortcut = "SPC f r",
+db.setup({
+    theme = "doom",
+    hide = {
+        statusline = true,
+        tabline = true,
+        winbar = true,
     },
-    {
-        icon = "  ",
-        desc = "Find File                               ",
-        action = "Telescope find_files find_command=rg,--hidden,--files,-S",
-        shortcut = "SPC f f",
+    disable_move = true,
+    config = {
+        header = getHeader(),
+        center = {
+            {
+                icon = "  ",
+                icon_hl = "Title",
+                desc = "Recent Files                     ",
+                desc_hl = "String",
+                action = "Telescope oldfiles",
+                keymap = "SPC f r",
+                key = "r",
+                key_hl = "Number",
+            },
+            {
+                icon = "  ",
+                icon_hl = "Title",
+                -- desc = "Find File                               ",
+                desc = "Find File",
+                desc_hl = "String",
+                action = "Telescope find_files find_command=rg,--hidden,--files,-S",
+                keymap = "SPC f f",
+                key = "f",
+                key_hl = "Number",
+            },
+            {
+                icon = "  ",
+                icon_hl = "Title",
+                -- desc = "New File                                ",
+                desc = "New File",
+                desc_hl = "String",
+                action = "new",
+                keymap = "SPC f n",
+                key = "n",
+                key_hl = "Number",
+            },
+            {
+                icon = "פּ  ",
+                icon_hl = "Title",
+                -- desc = "File Browser                            ",
+                desc = "File Browser",
+                desc_hl = "String",
+                action = "Telescope file_browser",
+                keymap = "SPC f p",
+                key = "p",
+                key_hl = "Number",
+            },
+            {
+                icon = "  ",
+                icon_hl = "Title",
+                -- desc = "Search Text                             ",
+                desc = "Search Text",
+                desc_hl = "String",
+                action = "Telescope live_grep",
+                keymap = "SPC s t",
+                key = "s",
+                key_hl = "Number",
+            },
+        },
+        footer = getFooter(),
     },
-    {
-        icon = "  ",
-        desc = "New File                                ",
-        action = "DashboardNewFile",
-        shortcut = "SPC f n",
-    },
-    {
-        icon = "פּ  ",
-        desc = "File Browser                            ",
-        action = "Telescope file_browser",
-        shortcut = "SPC f p",
-    },
-    {
-        icon = "  ",
-        desc = "Search Text                             ",
-        action = "Telescope live_grep",
-        shortcut = "SPC s t",
-    },
-}
+})
