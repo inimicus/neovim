@@ -56,10 +56,10 @@ cmp.setup({
             with_text = false,
             maxwidth = 50,
             menu = {
-                buffer = "BUF",
                 nvim_lsp = "LSP",
-                path = "PATH",
                 vsnip = "SNIP",
+                buffer = "BUF",
+                path = "PATH",
                 calc = "CALC",
                 spell = "SPELL",
                 emoji = "EMOJI",
@@ -106,12 +106,12 @@ cmp.setup({
     sources = {
         { name = "nvim_lsp_signature_help" },
         { name = "nvim_lsp" },
-        { name = "buffer", keyword_length = 5 },
         { name = "vsnip" },
+        { name = "buffer", keyword_length = 5 },
+        { name = "path" },
         { name = "calc" },
         { name = "emoji" },
         { name = "spell" },
-        { name = "path" },
     },
 })
 
