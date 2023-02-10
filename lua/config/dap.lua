@@ -45,17 +45,10 @@ if registry.is_installed("php-debug-adapter") then
         type = "executable",
         command = "php-debug-adapter",
     }
-    dap.configurations.php = {
-        {
-            type = "php",
-            request = "launch",
-            name = "Listen for xdebug",
-            port = "9003",
-            log = false,
-            serverSourceRoot = "/web/",
-            localSourceRoot = "/Users/gjennings/Sites/myintelisys/code/",
-        },
-    }
+end
+
+if vim.fn.filereadable('.vscode/launch.json') then
+    require('dap.ext.vscode').load_launchjs()
 end
 
 require("nvim-dap-virtual-text").setup()
