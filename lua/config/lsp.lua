@@ -48,7 +48,7 @@ local servers = {
     "intelephense",
     "jsonls",
     "pylsp",
-    "sumneko_lua",
+    "lua_ls",
     "yamlls",
 }
 
