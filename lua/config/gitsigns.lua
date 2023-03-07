@@ -73,14 +73,3 @@ gitsigns.setup({
     diff_opts = { internal = true },
     yadm = { enable = false },
 })
-
-local installed, kanagawa = pcall(require, "kanagawa.colors")
-if installed then
-    local colors = kanagawa.setup()
-    vim.cmd(
-        "hi GitSignsCurrentLineBlame cterm=italic gui=italic guifg="
-        .. colors.sumiInk4
-        .. " guibg="
-        .. colors.bg
-    )
-end
