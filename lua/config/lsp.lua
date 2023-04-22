@@ -252,6 +252,9 @@ for _, lsp in ipairs(servers) do
                     version = "LuaJIT",
                     path = vim.split(package.path, ";"),
                 },
+                format = {
+                    enable = true,
+                },
                 completion = {
                     enable = true,
                     callSnippet = "Both",

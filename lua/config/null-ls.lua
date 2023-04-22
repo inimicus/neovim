@@ -14,7 +14,6 @@ local sources = {
     formatting.prettierd,
     formatting.phpcsfixer.with({ prefer_local = "vendor/bin" }),
     formatting.shfmt,
-    formatting.stylua,
 }
 
 null_ls.setup({
