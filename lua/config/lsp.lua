@@ -50,6 +50,7 @@ local servers = {
     "pylsp",
     "lua_ls",
     "yamlls",
+    "lemminx"
 }
 
 -- Use a loop to conveniently call 'setup' on multiple servers
