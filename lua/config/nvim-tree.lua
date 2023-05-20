@@ -138,7 +138,7 @@ nvim_tree.setup({
                 -- default = "",
                 default = "",
                 symlink = "",
-                bookmark = "",
+                bookmark = "",
                 folder = {
                     default = "",
                     open = "",
@@ -150,13 +150,13 @@ nvim_tree.setup({
                     symlink_open = "",
                 },
                 git = {
-                    unstaged = "ﱤ",
-                    staged = "",
-                    unmerged = "",
-                    renamed = "ﰲ",
-                    deleted = " ", --   﫧
-                    untracked = "",
-                    ignored = "",
+                    unstaged = "",
+                    staged = "",
+                    unmerged = "",
+                    renamed = "",
+                    deleted = "󰚃", --   﫧
+                    untracked = "",
+                    ignored = "",
                 },
             },
         },

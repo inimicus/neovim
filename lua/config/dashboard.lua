@@ -383,7 +383,7 @@ db.setup({
                 key_hl = "Number",
             },
             {
-                icon = "  ",
+                icon = "  ",
                 icon_hl = "Title",
                 -- desc = "Find File                               ",
                 desc = "Find File",
@@ -394,7 +394,7 @@ db.setup({
                 key_hl = "Number",
             },
             {
-                icon = "  ",
+                icon = "  ",
                 icon_hl = "Title",
                 -- desc = "New File                                ",
                 desc = "New File",
@@ -405,7 +405,7 @@ db.setup({
                 key_hl = "Number",
             },
             {
-                icon = "פּ  ",
+                icon = "  ",
                 icon_hl = "Title",
                 -- desc = "File Browser                            ",
                 desc = "File Browser",
@@ -416,7 +416,7 @@ db.setup({
                 key_hl = "Number",
             },
             {
-                icon = "  ",
+                icon = "  ",
                 icon_hl = "Title",
                 -- desc = "Search Text                             ",
                 desc = "Search Text",
