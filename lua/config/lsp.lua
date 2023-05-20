@@ -1,6 +1,24 @@
-local nvim_lsp = require("lspconfig")
+local mason_ok, mason = pcall(require, "mason")
+local mason_lspconfig_ok, lspconfig = pcall(require, "mason-lspconfig")
+local lspconfig_ok, nvim_lsp = pcall(require, "lspconfig")
+
+if not mason_ok or not mason_lspconfig_ok or not lspconfig_ok then
+    return
+end
+
+mason.setup()
+lspconfig.setup({
+    ensure_installed = {
+        "lua_ls",
+        "intelephense",
+        "tsserver",
+    },
+    automatic_installation = true,
+});
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local navic_installed, navic = pcall(require, "nvim-navic")
 local ufo_installed, _ = pcall(require, "ufo")
@@ -23,6 +41,15 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl })
 end
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "rounded",
+    })
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -42,13 +69,15 @@ local lsp_flags = {
 -- NOTE: tsserver is configured via typescript plugin
 local servers = {
     "bashls",
+    "docker_compose_language_service",
+    "dockerls",
     "dockerls",
     "emmet_ls",
     "eslint",
     "intelephense",
     "jsonls",
-    "pylsp",
     "lua_ls",
+    "pylsp",
     "yamlls",
     "lemminx"
 }
@@ -131,6 +160,7 @@ for _, lsp in ipairs(servers) do
                     "posix",
                     "pthreads",
                     "radius",
+                    "random",
                     "readline",
                     "recode",
                     "redis",
@@ -188,6 +218,45 @@ for _, lsp in ipairs(servers) do
                 },
                 rename = {
                     namespaceMode = "all",
+                },
+                phpdoc = {
+                    useFullyQualifiedNames = true,
+                },
+                hint = {
+                    enable = true,
+                },
+            },
+            typescript = {
+                hint = {
+                    enable = true,
+                },
+                inlayHints = {
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
+            },
+            javascript = {
+                hint = {
+                    enable = true,
+                },
+                inlayHints = {
+                    includeInlayParameterNameHints = "all",
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
+            },
+            eslint = {
+                format = {
+                    enabled = false,
                 },
             },
             json = {
@@ -258,6 +327,9 @@ for _, lsp in ipairs(servers) do
                 completion = {
                     enable = true,
                     callSnippet = "Both",
+                },
+                hint = {
+                    enable = true,
                 },
                 diagnostics = {
                     enable = true,

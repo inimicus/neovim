@@ -218,10 +218,8 @@ use({
             requires = {
                 {
                     "williamboman/mason.nvim",
-                    config = get_config("mason"),
                 },
             },
-            config = get_config("mason-lspconfig"),
         },
     },
     config = get_config("lsp"),
