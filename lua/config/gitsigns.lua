@@ -4,10 +4,6 @@ if not status_ok then
 end
 
 gitsigns.setup({
-    keymaps = {
-        -- Default keymap options
-        noremap = false,
-    },
     signs = {
         add = {
             hl = "GitSignsAdd",
