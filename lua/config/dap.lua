@@ -10,7 +10,7 @@ local registry = require("mason-registry")
 -- vim.highlight.create('DapStopped', { ctermbg=0, guifg='#98c379', guibg='#31353f' }, false)
 
 vim.fn.sign_define("DapBreakpoint", {
-    text = "",
+    text = "",
     texthl = "DapBreakpoint",
     linehl = "DapBreakpoint",
     numhl = "DapBreakpoint",
