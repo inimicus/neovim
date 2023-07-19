@@ -45,21 +45,65 @@ local change_mark = function(tab, icon_changed, icon_no_change)
     return has_changes and icon_changed or icon_no_change
 end
 
-local tab_icon = function(tab)
+local function tab_icon(tab)
     local win_count = #api.get_tab_wins(tab.id)
-    if win_count == 1 then
-        if tab.is_current() then
-            return change_mark(tab, " ", " ")
-        else
-            return change_mark(tab, " ", " ")
-        end
-    else
-        if tab.is_current() then
-            return change_mark(tab, "לּ ", "ךּ ")
-        else
-            return change_mark(tab, "﬽ ", "כּ ")
-        end
-    end
+    local plusTab = {
+        -- 󰲳  󰲲  󰏁  󰎿
+        changed = "󰲳 ",
+        unchanged = "󰲲 ",
+    }
+    local multiTab = {
+        --         󰄗  󱅶
+        -- 󰲡  󰲠  󰎦  󰎤
+        -- 󰲣  󰲢  󰎩  󰎧
+        -- 󰲥  󰲤  󰎬  󰎪
+        -- 󰲧  󰲦  󰎮  󰎭
+        -- 󰲩  󰲨  󰎰  󰎱
+        -- 󰲫  󰲪  󰎵  󰎳
+        -- 󰲭  󰲬  󰎸  󰎶
+        -- 󰲯  󰲮  󰎻  󰎹
+        -- 󰲱  󰲰  󰎾  󰎼
+        [1] = {
+            changed = " ",
+            unchanged = " ",
+        },
+        [2] = {
+            changed = "󰲣 ",
+            unchanged = "󰲢 ",
+        },
+        [3] = {
+            changed = "󰲥 ",
+            unchanged = "󰲤 ",
+        },
+        [4] = {
+            changed = "󰲧 ",
+            unchanged = "󰲦 ",
+        },
+        [5] = {
+            changed = "󰲩 ",
+            unchanged = "󰲨 ",
+        },
+        [6] = {
+            changed = "󰲫 ",
+            unchanged = "󰲪 ",
+        },
+        [7] = {
+            changed = "󰲭 ",
+            unchanged = "󰲬 ",
+        },
+        [8] = {
+            changed = "󰲯 ",
+            unchanged = "󰲮 ",
+        },
+        [9] = {
+            changed = "󰲱 ",
+            unchanged = "󰲰 ",
+        },
+    }
+
+    local tabIcon = win_count > 9 and plusTab or multiTab[win_count]
+
+    return change_mark(tab, tabIcon.changed, tabIcon.unchanged)
 end
 
 tabline.set(function(line)
