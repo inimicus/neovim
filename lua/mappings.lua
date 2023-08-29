@@ -29,9 +29,6 @@ map("n", "<C-J>", "<C-W><C-J>", default_options)
 map("n", "<C-K>", "<C-W><C-K>", default_options)
 map("n", "<C-L>", "<C-W><C-L>", default_options)
 
--- Cancel search highlighting with ESC
-map("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_options)
-
 -- Assist with sticky shift/fingers
 vim.cmd([[command! WQ wq]])
 vim.cmd([[command! Wq wq]])
