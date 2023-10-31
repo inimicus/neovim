@@ -70,7 +70,7 @@ local winbarSections = {
                 error = " ",
                 warn = " ",
                 info = " ",
-                hint = " ",
+                hint = "󰌵 ",
             },
             colored = true, -- Displays diagnostics status in color if set to true.
             update_in_insert = false, -- Update diagnostics in insert mode.

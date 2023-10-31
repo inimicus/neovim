@@ -26,7 +26,7 @@ vim.fn.sign_define(
 )
 vim.fn.sign_define(
     "DiagnosticSignHint",
-    { text = "", texthl = "DiagnosticSignHint" }
+    { text = "󰌵", texthl = "DiagnosticSignHint" }
 )
 
 neotree.setup({
