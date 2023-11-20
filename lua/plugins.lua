@@ -264,7 +264,10 @@ use({
 use("nvim-treesitter/nvim-treesitter-textobjects")
 
 -- Syntax aware comments
-use("JoosepAlviste/nvim-ts-context-commentstring")
+use({
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    config = get_config("ts-context-commentstring")
+})
 
 -- Autocompletion
 use({
