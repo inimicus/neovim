@@ -225,6 +225,8 @@ use({
     config = get_config("lsp"),
 })
 
+use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
+
 -- Typescript LSP setup
 use({
     "jose-elias-alvarez/typescript.nvim",
@@ -278,8 +280,8 @@ use({
         { "hrsh7th/cmp-path" },
         { "hrsh7th/cmp-cmdline" },
         { "hrsh7th/cmp-vsnip" },
-        { "hrsh7th/cmp-nvim-lsp-signature-help" },
-        { "f3fora/cmp-spell", { "hrsh7th/cmp-calc" } },
+        { "petertriho/cmp-git",  requires = "nvim-lua/plenary.nvim" },
+        { "f3fora/cmp-spell",    { "hrsh7th/cmp-calc" } },
     },
     config = get_config("cmp"),
 })
@@ -335,14 +337,6 @@ use({
     "onsails/lspkind-nvim",
     requires = {
         { "famiu/bufdelete.nvim" },
-    },
-})
-
--- Show LSP-based signatures while typing
-use({
-    "ray-x/lsp_signature.nvim",
-    requires = {
-        { "neovim/nvim-lspconfig" },
     },
 })
 

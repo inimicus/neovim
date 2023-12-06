@@ -20,6 +20,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local lsp_lines_installed, lsp_lines = pcall(require, "lsp_lines")
 local navic_installed, navic = pcall(require, "nvim-navic")
 local ufo_installed, _ = pcall(require, "ufo")
 if ufo_installed then
@@ -355,5 +356,14 @@ for _, lsp in ipairs(servers) do
                 },
             },
         },
+    })
+end
+
+if lsp_lines_installed then
+    lsp_lines.setup()
+    -- Disable virtual_text since it's redundant due to lsp_lines.
+    vim.diagnostic.config({
+        virtual_text = false,
+        virtual_lines = { highlight_whole_line = false }
     })
 end

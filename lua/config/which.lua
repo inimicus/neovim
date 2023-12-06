@@ -242,6 +242,7 @@ wk.register({
             "Line diagnostics",
         },
         n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
+        o = { "<cmd>lua vim.diagnostic.config({ virtual_text = not require('lsp_lines').toggle() })<cr>", "Open Diagnostic Lines" },
         p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
