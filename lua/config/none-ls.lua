@@ -10,6 +10,7 @@ local formatting = builtins.formatting
 local sources = {
     diagnostics.jsonlint,
     diagnostics.yamllint,
+    diagnostics.phpstan,
     -- diagnostics.shellcheck,
     formatting.prettierd,
     formatting.phpcsfixer.with({ prefer_local = "vendor/bin" }),

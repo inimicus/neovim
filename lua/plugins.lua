@@ -322,8 +322,8 @@ use({
 })
 
 use({
-    "jose-elias-alvarez/null-ls.nvim",
-    config = get_config("null-ls"),
+    "nvimtools/none-ls.nvim",
+    config = get_config("none-ls"),
     requires = { "nvim-lua/plenary.nvim" },
 })
 
