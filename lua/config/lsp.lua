@@ -19,6 +19,13 @@ lspconfig.setup({
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+        'documentation',
+        'detail',
+        'additionalTextEdits',
+    }
+}
 
 local lsp_lines_installed, lsp_lines = pcall(require, "lsp_lines")
 local navic_installed, navic = pcall(require, "nvim-navic")
@@ -46,10 +53,9 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
 })
 
-vim.lsp.handlers["textDocument/signatureHelp"] =
-    vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "rounded",
-    })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+})
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
