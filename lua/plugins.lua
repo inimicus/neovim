@@ -170,7 +170,7 @@ use({ "nvim-telescope/telescope-packer.nvim" })
 use({ "nvim-telescope/telescope-project.nvim" })
 
 -- Jack-of-all-trades sidebar
-use({ "sidebar-nvim/sidebar.nvim", config = get_config("sidebar") })
+-- use({ "sidebar-nvim/sidebar.nvim", config = get_config("sidebar") })
 
 -- Fancy notifications
 use({ "rcarriga/nvim-notify", config = get_config("notify") })
