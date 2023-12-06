@@ -72,16 +72,27 @@ local winbarSections = {
                 info = " ",
                 hint = "󰌵 ",
             },
-            colored = true, -- Displays diagnostics status in color if set to true.
+            colored = true,           -- Displays diagnostics status in color if set to true.
             update_in_insert = false, -- Update diagnostics in insert mode.
-            always_visible = false, -- Show diagnostics even if there are none.
+            always_visible = false,   -- Show diagnostics even if there are none.
         },
     },
+    lualine_y = {
+        {
+            require("noice").api.status.search.get,
+            cond = require("noice").api.status.search.has,
+        },
+    },
+    lualine_z = {},
 }
 
 local statusLineSections = {
     lualine_a = {
         { "mode", fmt = statusLineFormat },
+        {
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+        },
     },
     lualine_b = {
         { "b:gitsigns_head", icon = "", fmt = branchLineFormat },
@@ -100,6 +111,11 @@ local statusLineSections = {
         },
     },
     lualine_x = {
+        {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+        },
         "filetype",
     },
     lualine_y = {
