@@ -107,6 +107,7 @@ cmp.setup({
         { name = "nvim_lsp_signature_help" },
         { name = "nvim_lsp" },
         { name = "vsnip" },
+        { name = "git" },
         { name = "buffer", keyword_length = 5 },
         { name = "path" },
         { name = "calc" },
@@ -131,3 +132,5 @@ cmp.setup.cmdline(":", {
         { { name = "cmdline" } }
     ),
 })
+
+require("cmp_git").setup()
