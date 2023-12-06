@@ -23,8 +23,9 @@ require("nvim-treesitter.configs").setup({
         "json",
         "lua",
         "markdown",
+        "markdown_inline",
         "php",
-        --"phpdoc",
+        "phpdoc",
         "scss",
         "typescript",
         "yaml",
@@ -67,9 +68,6 @@ require("nvim-treesitter.configs").setup({
                 ["ar"] = "@parameter.outer",
             },
         },
-    },
-    context_commentstring = {
-        enable = true,
     },
     autotag = {
         enable = true,
