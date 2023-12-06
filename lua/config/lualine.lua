@@ -35,7 +35,7 @@ local winbarSections = {
     lualine_b = {
         {
             "filetype",
-            colored = false, -- Displays filetype icon in color if set to true
+            colored = false,  -- Displays filetype icon in color if set to true
             icon_only = true, -- Display only an icon for filetype
         },
     },
@@ -59,8 +59,6 @@ local winbarSections = {
             end,
         },
     },
-    lualine_y = {},
-    lualine_z = {},
     lualine_x = {
         {
             "diagnostics",
