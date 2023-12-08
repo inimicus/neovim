@@ -8,6 +8,7 @@ local diagnostics = builtins.diagnostics
 local formatting = builtins.formatting
 
 local sources = {
+    diagnostics.cfn_lint,
     diagnostics.jsonlint,
     diagnostics.yamllint,
     diagnostics.phpstan,
