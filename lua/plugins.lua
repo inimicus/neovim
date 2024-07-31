@@ -104,7 +104,7 @@ use({
 })
 
 -- Make cursor pop
-use({ "edluffy/specs.nvim", config = get_config("specs") })
+-- use({ "edluffy/specs.nvim", config = get_config("specs") })
 
 -- Automatically pair tags/brackets/etc
 use({ "windwp/nvim-autopairs", config = get_config("autopairs") })
