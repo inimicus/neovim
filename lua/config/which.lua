@@ -27,20 +27,20 @@ wk.setup({
     },
     -- add operators that will trigger motion and text object completion
     -- to enable all native operators, set the preset / operators plugin above
-    operators = { gc = "Comments" },
-    key_labels = {
-        -- override the label used to display some keys. It doesn't effect WK in any other way.
-        -- For example:
-        -- ["<space>"] = "SPC",
-        -- ["<cr>"] = "RET",
-        -- ["<tab>"] = "TAB",
-    },
+    -- operators = { gc = "Comments" },
+    -- key_labels = {
+    --     -- override the label used to display some keys. It doesn't effect WK in any other way.
+    --     -- For example:
+    --     -- ["<space>"] = "SPC",
+    --     -- ["<cr>"] = "RET",
+    --     -- ["<tab>"] = "TAB",
+    -- },
     icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
         separator = "➜", -- symbol used between a key and it's label
-        group = " ", -- symbol prepended to a group
+        group = " ",   -- symbol prepended to a group
     },
-    window = {
+    win = {
         border = "none",          -- none, single, double, shadow
         position = "bottom",      -- bottom, top
         margin = { 1, 0, 0, 0 },  -- extra window margin [top, right, bottom, left]
@@ -53,31 +53,34 @@ wk.setup({
         align = "center",               -- align columns left, center or right
     },
     -- enable this to hide mappings for which you didn't specify a label
-    ignore_missing = false,
+    -- ignore_missing = false,
     -- hide mapping boilerplate
-    hidden = {
-        "<CR>",
-        "<Cmd>",
-        "<cmd>",
-        "<cr>",
-        "<silent>",
-        "^ ",
-        "^:",
-        "call",
-        "lua",
-        "require",
-    },
+    -- hidden = {
+    --     "<CR>",
+    --     "<Cmd>",
+    --     "<cmd>",
+    --     "<cr>",
+    --     "<silent>",
+    --     "^ ",
+    --     "^:",
+    --     "call",
+    --     "lua",
+    --     "require",
+    -- },
     show_help = false, -- show help message on the command line when the popup is visible
     show_keys = false, -- show the currently pressed key and its label as a message in the command line
-    triggers = "auto", -- automatically setup triggers
+    triggers = {
+        { "<auto>", mode = "nixsotc" },
+        { "a",      mode = { "n", "v" } },
+    }
     -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-        -- list of mode / prefixes that should never be hooked by WhichKey
-        -- this is mostly relevant for key maps that start with a native binding
-        -- most people should not need to change this
-        i = { "j", "k" },
-        v = { "j", "k" },
-    },
+    -- triggers_blacklist = {
+    --     -- list of mode / prefixes that should never be hooked by WhichKey
+    --     -- this is mostly relevant for key maps that start with a native binding
+    --     -- most people should not need to change this
+    --     i = { "j", "k" },
+    --     v = { "j", "k" },
+    -- },
 })
 
 -- register non leader based mappings
@@ -242,7 +245,8 @@ wk.register({
             "Line diagnostics",
         },
         n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
-        o = { "<cmd>lua vim.diagnostic.config({ virtual_text = not require('lsp_lines').toggle() })<cr>", "Open Diagnostic Lines" },
+        o = { "<cmd>lua vim.diagnostic.config({ virtual_text = not require('lsp_lines').toggle() })<cr>",
+            "Open Diagnostic Lines" },
         p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
         r = { "<cmd>Telescope lsp_references<cr>", "References" },
