@@ -239,7 +239,13 @@ use({
     "mfussenegger/nvim-dap",
     config = get_config("dap"),
 })
-use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+use({
+    "rcarriga/nvim-dap-ui",
+    requires = {
+        "mfussenegger/nvim-dap",
+        "nvim-neotest/nvim-nio"
+    }
+})
 use({ "nvim-telescope/telescope-dap.nvim" })
 use({ "theHamsta/nvim-dap-virtual-text" })
 
