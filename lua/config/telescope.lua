@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 local custom_actions = {}
 
 telescope.setup({
@@ -64,7 +64,7 @@ telescope.setup({
                 ["<c-s>"] = custom_actions.multi_selection_open_split,
                 ["<c-t>"] = custom_actions.multi_selection_open_tab,
                 -- ["<C-q>"] = actions.send_to_qflist,
-                ["<c-q>"] = trouble.smart_open_with_trouble,
+                ["<c-q>"] = trouble.open,
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
             },
@@ -79,7 +79,7 @@ telescope.setup({
                 ["<c-s>"] = custom_actions.multi_selection_open_split,
                 ["<c-t>"] = custom_actions.multi_selection_open_tab,
                 -- ["<C-q>"] = actions.send_to_qflist,
-                ["<c-q>"] = trouble.smart_open_with_trouble,
+                ["<c-q>"] = trouble.open,
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
             },
